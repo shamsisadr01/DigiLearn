@@ -19,13 +19,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{A18B06
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blog", "Blog", "{4063859A-528D-4415-9E0A-9FB1523D5C15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogModule", "src\Modules\Blog\BlogModule\BlogModule.csproj", "{AAC3E4B3-DB39-466E-AB57-F8B5357AB20C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogModule", "src\Modules\Blog\BlogModule\BlogModule.csproj", "{AAC3E4B3-DB39-466E-AB57-F8B5357AB20C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.L1.Domain", "src\Common\Common.L1.Domain\Common.L1.Domain.csproj", "{C7E5B312-687E-4A47-A773-5A21BB52B0B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L1.Domain", "src\Common\Common.L1.Domain\Common.L1.Domain.csproj", "{C7E5B312-687E-4A47-A773-5A21BB52B0B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.L2.Application", "src\Common\Common.L2.Application\Common.L2.Application.csproj", "{5262BB35-9485-4152-B308-74DA1342404B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L2.Application", "src\Common\Common.L2.Application\Common.L2.Application.csproj", "{5262BB35-9485-4152-B308-74DA1342404B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.L3.Infrastructure", "src\Common\Common.L3.Infrastructure\Common.L3.Infrastructure.csproj", "{0C2B8875-C13C-41D7-A43E-1BAAB1838CC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.L3.Infrastructure", "src\Common\Common.L3.Infrastructure\Common.L3.Infrastructure.csproj", "{0C2B8875-C13C-41D7-A43E-1BAAB1838CC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ticket", "Ticket", "{CD5ABAB4-5FFA-4561-90E2-AB4F38B9A452}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketModule", "src\Modules\Ticket\TicketModule\TicketModule.csproj", "{B610FD3C-EB4D-4CB3-BA9E-A609D4B17E27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{0C2B8875-C13C-41D7-A43E-1BAAB1838CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C2B8875-C13C-41D7-A43E-1BAAB1838CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C2B8875-C13C-41D7-A43E-1BAAB1838CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B610FD3C-EB4D-4CB3-BA9E-A609D4B17E27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B610FD3C-EB4D-4CB3-BA9E-A609D4B17E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B610FD3C-EB4D-4CB3-BA9E-A609D4B17E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B610FD3C-EB4D-4CB3-BA9E-A609D4B17E27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +70,8 @@ Global
 		{C7E5B312-687E-4A47-A773-5A21BB52B0B4} = {A18B0682-60B4-41D1-BA7F-22085DBF0021}
 		{5262BB35-9485-4152-B308-74DA1342404B} = {A18B0682-60B4-41D1-BA7F-22085DBF0021}
 		{0C2B8875-C13C-41D7-A43E-1BAAB1838CC9} = {A18B0682-60B4-41D1-BA7F-22085DBF0021}
+		{CD5ABAB4-5FFA-4561-90E2-AB4F38B9A452} = {56EDEF0B-CD5A-4762-BA89-0C6EF099A2B2}
+		{B610FD3C-EB4D-4CB3-BA9E-A609D4B17E27} = {CD5ABAB4-5FFA-4561-90E2-AB4F38B9A452}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DAD9D125-EA36-4D95-9D96-2A2E1C67D320}
