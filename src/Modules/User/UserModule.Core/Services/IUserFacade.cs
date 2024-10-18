@@ -38,6 +38,7 @@ public class UserFacade : IUserFacade
 
     public async Task<UserDto?> GetById(Guid id)
     {
-       // return await _mediator.Send(new GetUserByIdQuery(id));
+        throw new Exception();
+        // return await _mediator.Send(new GetUserByIdQuery(id));
     }
 }

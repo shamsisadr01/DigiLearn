@@ -6,7 +6,7 @@ namespace UserModule.Data;
 
 public class UserContext : DbContext
 {
-    public UserContext(DbContextOptions<UserContext> options)
+    public UserContext(DbContextOptions<UserContext> options) : base(options)
     {
         
     }
@@ -16,4 +16,5 @@ public class UserContext : DbContext
     public DbSet<Role> Roles { get; set; }
     public DbSet<UserRole> UserRoles { get; set; }
     public DbSet<RolePermission> RolePermissions { get; set; }
+
 }
