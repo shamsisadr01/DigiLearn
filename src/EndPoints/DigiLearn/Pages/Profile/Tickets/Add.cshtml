@@ -1,0 +1,29 @@
+﻿@page
+@model DigiLearn.Pages.Profile.Tickets.AddModel
+@{
+    ViewData["Title"] = "  افرودن تیک جدید";
+}
+
+<div class="row ">
+    <div class="col-12 info shadow pl-0 pr-0">
+        <p class="title">
+            <i class="fa fa-address-card-o"></i>
+            @ViewData["Title"]
+        </p>
+        <div class="info-body p-2">
+            <form method="post" class="row">
+                <div class="col-12">
+                    @Html.EditorFor(f => f.Title)
+                </div>
+                <div class="col-12">
+                    @Html.EditorFor(f => f.Text)
+                </div>
+
+                <div class="col-12">
+                    <button class="btn  btn-save  mt-3">ثبت تیکت</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

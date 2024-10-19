@@ -4,7 +4,7 @@ using TicketModule.Data.Entities;
 namespace TicketModule.Data;
 class TicketContext : DbContext
 {
-    public TicketContext(DbContextOptions<TicketContext> options)
+    public TicketContext(DbContextOptions<TicketContext> options) : base(options)
     {
         
     }

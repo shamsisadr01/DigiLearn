@@ -8,7 +8,7 @@ namespace Common.L4.Query
 {
 	public class BaseDto
 	{
-		public long Id { get; set; }
+		public Guid Id { get; set; }
 
 		public DateTime CreationDate { get; set; }
 	}

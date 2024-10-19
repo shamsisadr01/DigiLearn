@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Core\DTOs\" />
     <Folder Include="Data\Entities\" />
   </ItemGroup>
 
@@ -24,6 +23,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\Common\Common.L3.Infrastructure\Common.L3.Infrastructure.csproj" />
+	  <ProjectReference Include="..\..\..\Common\Common.L4.Query\Common.L4.Query.csproj" />
 	</ItemGroup>
 
 </Project>
