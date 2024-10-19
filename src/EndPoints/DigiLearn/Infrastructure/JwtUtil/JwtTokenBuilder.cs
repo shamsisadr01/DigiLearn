@@ -24,7 +24,7 @@ namespace DigiLearn.Infrastructure.JwtUtil
 				issuer: configuration["JwtConfig:Issuer"],
 				audience: configuration["JwtConfig:Audience"],
 				claims: claims,
-				expires: DateTime.Now.AddDays(7),
+				expires: DateTime.Now.AddDays(30),
 				signingCredentials: credential);
 
 			var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
