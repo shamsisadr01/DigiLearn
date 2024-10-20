@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Common.L4.Query;
 using Microsoft.EntityFrameworkCore;
-using UserModule.Core.Queries.Users._DTOs;
+using UserModule.Core.Queries._DTOs;
 using UserModule.Data;
 
 namespace UserModule.Core.Queries.Users.GetByPhoneNumber;

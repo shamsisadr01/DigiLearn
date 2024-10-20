@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Commands\Notifications\Create\" />
     <Folder Include="Commands\Roles\" />
     <Folder Include="Queries\Roles\" />
     <Folder Include="Queries\Users\GetById\" />
     <Folder Include="Queries\Users\GetByPhoneNumber\" />
-    <Folder Include="Queries\Users\_DTOs\" />
+    <Folder Include="Queries\_DTOs\" />
   </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="13.0.1" />

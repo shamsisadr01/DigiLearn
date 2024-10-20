@@ -2,11 +2,11 @@
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using UserModule.Core.Queries.Users._DTOs;
+using UserModule.Core.Queries._DTOs;
 
 namespace DigiLearn.Infrastructure.JwtUtil
 {
-	public class JwtTokenBuilder
+    public class JwtTokenBuilder
 	{
 		public static string BuildToken(UserDto user,IConfiguration configuration)
         {

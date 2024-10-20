@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DigiLearn.Infrastructure.RazorUtils;
 
-public class BaseRazorFilter<TFilterParam> : PageModel where TFilterParam : BaseFilterParam,new()
+public class BaseRazorFilter<TFilterParam> : BaseRazor where TFilterParam : BaseFilterParam,new()
 {
     public BaseRazorFilter()
     {

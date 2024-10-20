@@ -1,6 +1,6 @@
-﻿namespace UserModule.Core.Queries.Users._DTOs;
+﻿namespace UserModule.Core.Queries._DTOs;
 
-public class UserDto 
+public class UserDto
 {
     public Guid Id { get; set; }
     public DateTime CreationDate { get; set; }

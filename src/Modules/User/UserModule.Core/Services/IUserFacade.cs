@@ -3,7 +3,7 @@ using MediatR;
 using UserModule.Core.Commands.Users.ChangePassword;
 using UserModule.Core.Commands.Users.Edit;
 using UserModule.Core.Commands.Users.Register;
-using UserModule.Core.Queries.Users._DTOs;
+using UserModule.Core.Queries._DTOs;
 using UserModule.Core.Queries.Users.GetByPhoneNumber;
 
 namespace UserModule.Core.Services;
