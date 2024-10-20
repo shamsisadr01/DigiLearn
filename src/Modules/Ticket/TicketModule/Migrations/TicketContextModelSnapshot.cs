@@ -95,7 +95,7 @@ namespace TicketModule.Migrations
             modelBuilder.Entity("TicketModule.Data.Entities.TicketMessage", b =>
                 {
                     b.HasOne("TicketModule.Data.Entities.Ticket", "Ticket")
-                        .WithMany("Message")
+                        .WithMany("Messages")
                         .HasForeignKey("TicketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -105,7 +105,7 @@ namespace TicketModule.Migrations
 
             modelBuilder.Entity("TicketModule.Data.Entities.Ticket", b =>
                 {
-                    b.Navigation("Message");
+                    b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618
         }

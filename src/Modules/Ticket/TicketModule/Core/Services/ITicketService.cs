@@ -87,7 +87,7 @@ class TicketService : ITicketService
     public async Task<TicketDto?> GetTicket(Guid ticketId)
     {
         var ticket = await _context.Tickets
-            .Include(c => c.Message)
+            .Include(c => c.Messages)
             .FirstOrDefaultAsync(f => f.Id == ticketId);
 
         return _mapper.Map<TicketDto>(ticket);

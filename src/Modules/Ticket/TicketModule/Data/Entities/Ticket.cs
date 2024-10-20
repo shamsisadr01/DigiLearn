@@ -17,7 +17,7 @@ class Ticket : BaseEntity
     public string Text { get; set; }
     public TicketStatus TicketStatus { get; set; }
 
-    public List<TicketMessage> Message { get; set; }
+    public List<TicketMessage> Messages { get; set; }
 }
 
 public enum TicketStatus

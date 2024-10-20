@@ -285,10 +285,10 @@ $(document).on("submit",
         return false;
     });
 $(document).ready(function () {
-    loadCkeditor5();
-    loadCkeditor4();
-    loadDataTable();
-    loadSelect2();
+   // loadCkeditor5();
+   // loadCkeditor4();
+   // loadDataTable();
+   // loadSelect2();
     var result = getCookie("SystemAlert");
     if (result) {
         result = JSON.parse(result);
