@@ -4,6 +4,7 @@ using CoreModule.Domain.Course.DomainService;
 using CoreModule.Domain.Teacher.DomainServices;
 using CoreModule.Facade;
 using CoreModule.Infrastructure;
+using CoreModule.Query;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,7 @@ namespace CoreModule.Config
         {
             CoreModuleFacadeBootstrapper.RegisterDependency(services);
             CoreModuleInfrastructureBootstrapper.RegisterDependency(services, configuration);
-            //CoreModuleQueryBootstrapper.RegisterDependency(services, configuration);
+            CoreModuleQueryBootstrapper.RegisterDependency(services, configuration);
 
             services.AddMediatR(ctf =>
             {

@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CoreModule.Facade\CoreModule.Facade.csproj" />
     <ProjectReference Include="..\CoreModule.Infrastructure\CoreModule.Infrastructure.csproj" />
+    <ProjectReference Include="..\CoreModule.Query\CoreModule.Query.csproj" />
   </ItemGroup>
 
 </Project>

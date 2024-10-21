@@ -2,6 +2,7 @@
 using CoreModule.Application.Teacher.AcceptRequest;
 using CoreModule.Application.Teacher.Register;
 using CoreModule.Application.Teacher.RejectRequset;
+using CoreModule.Query.Teacher._DTOS;
 
 namespace CoreModule.Facade.Teacher;
 
@@ -14,7 +15,7 @@ public interface ITeacherFacade
 
 
 
-   /* Task<TeacherDto?> GetById(Guid id);
+    Task<TeacherDto?> GetById(Guid id);
     Task<TeacherDto?> GetByUserId(Guid userId);
-    Task<List<TeacherDto>> GetList();*/
+    Task<List<TeacherDto>> GetList();
 }

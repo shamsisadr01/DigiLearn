@@ -2,6 +2,10 @@
 using CoreModule.Application.Teacher.AcceptRequest;
 using CoreModule.Application.Teacher.Register;
 using CoreModule.Application.Teacher.RejectRequset;
+using CoreModule.Query.Teacher._DTOS;
+using CoreModule.Query.Teacher.GetById;
+using CoreModule.Query.Teacher.GetByUserId;
+using CoreModule.Query.Teacher.GetList;
 using MediatR;
 
 namespace CoreModule.Facade.Teacher;
@@ -36,7 +40,7 @@ public class TeacherFacade : ITeacherFacade
 
     }*/
 
-    /*  public async Task<TeacherDto?> GetById(Guid id)
+    public async Task<TeacherDto?> GetById(Guid id)
     {
         return await _mediator.Send(new GetTeacherByIdQuery(id));
     }
@@ -50,5 +54,5 @@ public class TeacherFacade : ITeacherFacade
     public async Task<List<TeacherDto>> GetList()
     {
         return await _mediator.Send(new GetTeacherListQuery());
-    }*/
+    }
 }
