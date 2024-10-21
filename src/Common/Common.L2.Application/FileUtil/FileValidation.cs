@@ -24,7 +24,31 @@ namespace Common.L2.Application.FileUtil
 			return false;
 		}
 
-		public static bool IsValidImageFile(string fileName)
+        public static bool IsValidCompressFile(this IFormFile file)
+        {
+            if (file == null) return false;
+            var path = Path.GetExtension(file.FileName);
+            path = path.ToLower();
+            if (path == ".zip" ||
+                path == ".rar")
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool IsValidMp4File(this IFormFile file)
+        {
+            if (file == null) return false;
+            var path = Path.GetExtension(file.FileName);
+            path = path.ToLower();
+            if (path == ".mp4")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool IsValidImageFile(string fileName)
 		{
 			if (string.IsNullOrEmpty(fileName)) return false;
 			var path = Path.GetExtension(fileName);

@@ -57,6 +57,31 @@ public class Course : AggregateRoot
         Sections = new();
     }
 
+
+    public void Edit(string title, string description, string imageName, string? videoName, int price,
+        SeoData seoData, CourseLevel courseLevel,CourseStatus courseStatus, Guid categoryId, Guid subCategoryId, string slug, CourseActionStatus status, ICourseDomainService domainService)
+    {
+        Guard(title, description, imageName, slug);
+
+        if(Slug!=slug)
+            if (domainService.SlugIsExist(slug))
+                throw new InvalidDomainDataException("Slug is Exist");
+
+        Title = title;
+        Description = description;
+        ImageName = imageName;
+        VideoName = videoName;
+        Price = price;
+        LastUpdate = DateTime.Now;
+        SeoData = seoData;
+        CourseLevel = courseLevel;
+        CategoryId = categoryId;
+        SubCategoryId = subCategoryId;
+        Slug = slug;
+        CourseStatus = courseStatus;
+        Status = status;
+    }
+
     public void AddSection(int displayOrder, string title)
     {
         if (Sections.Any(f => f.Title == title))
