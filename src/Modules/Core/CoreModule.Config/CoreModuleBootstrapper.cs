@@ -1,4 +1,7 @@
-﻿using CoreModule.Application.Category.Create;
+﻿using CoreModule.Application.Category;
+using CoreModule.Application.Category.Create;
+using CoreModule.Application.Course;
+using CoreModule.Application.Teacher;
 using CoreModule.Domain.Category.DomainServices;
 using CoreModule.Domain.Course.DomainService;
 using CoreModule.Domain.Teacher.DomainServices;
@@ -25,10 +28,10 @@ namespace CoreModule.Config
             });
             services.AddValidatorsFromAssembly(typeof(CreateCategoryCommand).Assembly);
 
-           /* services.AddScoped<ICourseDomainService, CourseDomainService>();
+            services.AddScoped<ICourseDomainService, CourseDomainService>();
             services.AddScoped<ITeacherDomainService, TeacherDomainService>();
             services.AddScoped<ICategoryDomainService, CategoryDomainService>();
-            services.AddScoped<IOrderDomainService, OrderDomainService>();*/
+         //   services.AddScoped<IOrderDomainService, OrderDomainService>();
 
             return services;
         }

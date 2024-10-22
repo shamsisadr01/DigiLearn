@@ -8,6 +8,7 @@ namespace Common.L3.Infrastructure;
 public class BaseEfContext<T> : DbContext where T : DbContext
 {
     private readonly IMediator _mediator;
+
     public BaseEfContext(DbContextOptions<T> options, IMediator mediator) : base(options)
     {
         _mediator = mediator;
@@ -20,6 +21,7 @@ public class BaseEfContext<T> : DbContext where T : DbContext
         await PublishEvents(modifiedEntities);
         return res;
     }
+
     private List<AggregateRoot> GetModifiedEntities() =>
         ChangeTracker.Entries<AggregateRoot>()
             .Where(x => x.State != EntityState.Detached)
@@ -37,3 +39,4 @@ public class BaseEfContext<T> : DbContext where T : DbContext
             }
         }
     }
+}

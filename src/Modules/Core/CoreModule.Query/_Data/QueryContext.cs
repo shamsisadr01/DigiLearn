@@ -6,7 +6,7 @@ namespace CoreModule.Query._Data;
 
 class QueryContext : DbContext
 {
-    public QueryContext() : base()
+    public QueryContext(DbContextOptions<QueryContext> options) : base(options)
     {
         ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
     }
