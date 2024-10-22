@@ -1,5 +1,4 @@
 ﻿using Common.L1.Domain;
-using CoreModule.Infrastructure.Persistent.Teacher;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoreModule.Query._Data.Entities;

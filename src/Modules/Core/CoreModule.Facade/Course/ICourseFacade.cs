@@ -1,6 +1,7 @@
 ﻿using Common.L2.Application;
 using CoreModule.Application.Course.Create;
 using CoreModule.Application.Course.Edit;
+using CoreModule.Query.Course._DTOs;
 
 namespace CoreModule.Facade.Course;
 
@@ -15,8 +16,8 @@ public interface ICourseFacade
     Task<OperationResult> EditEpisode(EditEpisodeCommand command);*/
 
 
-  /*  Task<CourseFilterResult> GetCourseFilter(CourseFilterParams param);
-    Task<CourseDto?> GetCourseById(Guid id);
+    Task<CourseFilterResult> GetCourseFilter(CourseFilterParams param);
+   /* Task<CourseDto?> GetCourseById(Guid id);
     Task<CourseDto?> GetCourseBySlug(string slug);
     Task<EpisodeDto?> GetEpisodeById(Guid id);*/
 }

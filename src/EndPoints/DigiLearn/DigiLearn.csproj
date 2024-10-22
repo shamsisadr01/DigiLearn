@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\Profile\Teacher\Courses\Sections\" />
     <Folder Include="wwwroot\css\fonts\" />
     <Folder Include="wwwroot\user\images\avatar\" />
   </ItemGroup>

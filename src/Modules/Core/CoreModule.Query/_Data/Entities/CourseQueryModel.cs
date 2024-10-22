@@ -2,9 +2,8 @@
 using Common.L1.Domain;
 using CoreModule.Domain.Course.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
-using CoreModule.Query._Data.Entities;
 
-namespace CoreModule.Infrastructure.Persistent.Teacher;
+namespace CoreModule.Query._Data.Entities;
 
 [Table("Courses", Schema = "course")]
 class CourseQueryModel : BaseEntity

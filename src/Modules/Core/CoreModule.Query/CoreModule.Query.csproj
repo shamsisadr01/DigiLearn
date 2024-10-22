@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Course\GetByFilter\" />
     <Folder Include="Teacher\GetList\" />
     <Folder Include="_DTOS\" />
     <Folder Include="Teacher\_DTOS\" />

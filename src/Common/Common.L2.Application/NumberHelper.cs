@@ -6,7 +6,15 @@
 		{
 			return $"{price:#,0} تومان";
 		}
-		public static string TooMan(this int? price)
+
+        public static string TooMan(this int price, bool ifPriceIsZeroReturnFree = false)
+        {
+            if (ifPriceIsZeroReturnFree && price == 0)
+                return "رایگان";
+            return $"{price:#,0} تومان";
+        }
+
+        public static string TooMan(this int? price)
 		{
 			return $"{price:#,0} تومان";
 		}
