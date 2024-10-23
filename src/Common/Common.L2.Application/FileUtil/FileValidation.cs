@@ -53,7 +53,7 @@ namespace Common.L2.Application.FileUtil
 			if (string.IsNullOrEmpty(fileName)) return false;
 			var path = Path.GetExtension(fileName);
 			path = path.ToLower();
-			if (path == ".jpg" || path == ".png" || path == ".bmp" || path == ".svg" || path == ".jpeg")
+			if (path == ".jpg" || path == ".png" || path == ".bmp" || path == ".svg" || path == ".jpeg" || path == ".webp")
 			{
 				return true;
 			}

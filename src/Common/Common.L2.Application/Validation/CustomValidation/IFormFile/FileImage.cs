@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using Common.L2.Application.FileUtil;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 
@@ -25,17 +26,18 @@ namespace Common.L2.Application.Validation.CustomValidation.IFormFile
 	}
 	static class Validation
 	{
-		public static bool IsImage(this Microsoft.AspNetCore.Http.IFormFile file)
-		{
-			try
-			{
-				var img = Image.FromStream(file.OpenReadStream());
-				return true;
-			}
-			catch
-			{
-				return false;
-			}
-		}
-	}
+        public static bool IsImage(this Microsoft.AspNetCore.Http.IFormFile file)
+        {
+            if (string.IsNullOrEmpty(file.FileName)) return false;
+            var path = Path.GetExtension(file.FileName);
+            path = path.ToLower();
+            if (path == ".jpg" || path == ".png" || path == ".bmp" || path == ".svg" || path == ".jpeg" ||
+                path == ".webp")
+            {
+                return true;
+            }
+
+            return false;
+        }
+    }
 }

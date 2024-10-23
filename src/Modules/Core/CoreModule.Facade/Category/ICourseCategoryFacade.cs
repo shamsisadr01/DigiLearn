@@ -2,6 +2,7 @@
 using CoreModule.Application.Category.AddChild;
 using CoreModule.Application.Category.Create;
 using CoreModule.Application.Category.Edit;
+using CoreModule.Query.Category._DTOs;
 
 namespace CoreModule.Facade.Category;
 
@@ -14,7 +15,7 @@ public interface ICourseCategoryFacade
 
 
 
-   /* Task<List<CourseCategoryDto>> GetMainCategories();
-    Task<CourseCategoryDto?> GetById(Guid categoryId);
-    Task<List<CourseCategoryDto>> GetChildren(Guid parentId);*/
+    Task<List<CourseCategoryDto>> GetMainCategories();
+    //Task<CourseCategoryDto?> GetById(Guid categoryId);
+    Task<List<CourseCategoryDto>> GetChildren(Guid parentId);
 }

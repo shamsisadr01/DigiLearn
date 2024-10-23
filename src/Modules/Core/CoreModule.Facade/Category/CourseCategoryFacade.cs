@@ -3,6 +3,9 @@ using CoreModule.Application.Category.AddChild;
 using CoreModule.Application.Category.Create;
 using CoreModule.Application.Category.Delete;
 using CoreModule.Application.Category.Edit;
+using CoreModule.Query.Category._DTOs;
+using CoreModule.Query.Category.GetAll;
+using CoreModule.Query.Category.GetChildren;
 using MediatR;
 
 namespace CoreModule.Facade.Category;
@@ -37,20 +40,20 @@ class CourseCategoryFacade : ICourseCategoryFacade
         return await _mediator.Send(command);
     }
 
-    /*public async Task<List<CourseCategoryDto>> GetMainCategories()
+    public async Task<List<CourseCategoryDto>> GetMainCategories()
     {
         return await _mediator.Send(new GetAllCourseCategoriesQuery());
 
     }
 
-    public async Task<CourseCategoryDto?> GetById(Guid categoryId)
+    /*public async Task<CourseCategoryDto?> GetById(Guid categoryId)
     {
         return await _mediator.Send(new GetCourseCategoryByIdQuery(categoryId));
-    }
+    }*/
 
     public async Task<List<CourseCategoryDto>> GetChildren(Guid parentId)
     {
         return await _mediator.Send(new GetCourseCategoryChildrenQuery(parentId));
 
-    }*/
+    }
 }

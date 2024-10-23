@@ -286,7 +286,7 @@ $(document).on("submit",
     });
 $(document).ready(function () {
    // loadCkeditor5();
-   // loadCkeditor4();
+    loadCkeditor4();
    // loadDataTable();
    // loadSelect2();
     var result = getCookie("SystemAlert");
@@ -571,10 +571,10 @@ function loadCkeditor4() {
     if (!document.getElementById("ckeditor4"))
         return;
 
-    $("body").prepend(`<script src="/ckeditor4/ckeditor/ckeditor.js"></script>`);
+    $("body").prepend(`<script src="/ckeditor4/ckeditor.js"></script>`);
     setTimeout(() => {
         CKEDITOR.replace('ckeditor4', {
-            customConfig: '/ckeditor4/ckeditor/config.js'
+            customConfig: '/ckeditor4/config.js'
         });
     }, 500);
 }
