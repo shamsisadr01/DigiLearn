@@ -3,6 +3,7 @@ using Common.L1.Domain.Exceptions;
 using Common.L1.Domain.ValueObjects;
 using CoreModule.Domain.Course.DomainService;
 using CoreModule.Domain.Course.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace CoreModule.Domain.Course.Models;
 
@@ -19,20 +20,19 @@ public class Course : AggregateRoot
     public string? VideoName { get; private set; }
     public int Price { get; private set; }
     public DateTime LastUpdate { get; private set; }
-    public SeoData SeoData { get; private set; }
+   // public SeoData SeoData { get; private set; }
 
     public CourseLevel CourseLevel { get; private set; }
     public CourseStatus CourseStatus { get; private set; }
     public CourseActionStatus Status { get; set; }
 
     public List<Section> Sections { get; private set; }
-
+  
     private Course()
     {
-
     }
     public Course(string title, Guid teacherId, string description, string imageName, string? videoName, int price,
-        SeoData seoData, CourseLevel courseLevel, Guid categoryId, Guid subCategoryId, string slug, CourseActionStatus status, ICourseDomainService domainService)
+         CourseLevel courseLevel, Guid categoryId, Guid subCategoryId, string slug, CourseActionStatus status, ICourseDomainService domainService)
     {
         Guard(title, description, imageName, slug);
 
@@ -46,7 +46,7 @@ public class Course : AggregateRoot
         VideoName = videoName;
         Price = price;
         LastUpdate = DateTime.Now;
-        SeoData = seoData;
+      //  SeoData = seoData;
         CourseLevel = courseLevel;
         CategoryId = categoryId;
         SubCategoryId = subCategoryId;
@@ -59,7 +59,7 @@ public class Course : AggregateRoot
 
 
     public void Edit(string title, string description, string imageName, string? videoName, int price,
-        SeoData seoData, CourseLevel courseLevel,CourseStatus courseStatus, Guid categoryId, Guid subCategoryId, string slug, CourseActionStatus status, ICourseDomainService domainService)
+         CourseLevel courseLevel,CourseStatus courseStatus, Guid categoryId, Guid subCategoryId, string slug, CourseActionStatus status, ICourseDomainService domainService)
     {
         Guard(title, description, imageName, slug);
 
@@ -73,7 +73,7 @@ public class Course : AggregateRoot
         VideoName = videoName;
         Price = price;
         LastUpdate = DateTime.Now;
-        SeoData = seoData;
+       // SeoData = seoData;
         CourseLevel = courseLevel;
         CategoryId = categoryId;
         SubCategoryId = subCategoryId;
@@ -87,8 +87,7 @@ public class Course : AggregateRoot
         if (Sections.Any(f => f.Title == title))
             throw new InvalidDomainDataException("title Is Exist");
 
-       var section = new Section(displayOrder, title, Id);
-       Sections.Add(section);
+        Sections.Add(new Section(displayOrder, title, Id));
     }
 
     public void EditSection(Guid sectionId, int displayOrder, string title)

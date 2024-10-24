@@ -18,7 +18,7 @@ class CourseQueryModel : BaseEntity
     public string? VideoName { get; set; }
     public int Price { get; set; }
     public DateTime LastUpdate { get; set; }
-    public SeoData SeoData { get; set; }
+  //  public SeoData SeoData { get; set; }
 
     public CourseLevel CourseLevel { get; set; }
     public CourseStatus CourseStatus { get; set; }

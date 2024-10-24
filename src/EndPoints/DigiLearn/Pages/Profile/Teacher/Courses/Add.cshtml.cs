@@ -89,7 +89,7 @@ namespace DigiLearn.Pages.Profile.Teacher.Courses
                 CourseLevel = CourseLevel,
                 CategoryId = CategoryId,
                 Description = Description,
-                SeoData = new SeoData(Title, Title, Title,false, null,""),
+              //  SeoData = new SeoData(Title, Title, Title,false, null,""),
                 Price = Price,
                 SubCategoryId = SubCategoryId
             });

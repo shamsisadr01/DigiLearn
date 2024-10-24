@@ -1,12 +1,13 @@
 ﻿using Common.L2.Application;
 using CoreModule.Domain.Course.Repository;
+using CoreModule.Infrastructure.Persistent;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreModule.Application.Course.Sections.Add;
 
 class AddCourseSectionCommandHandler : IBaseCommandHandler<AddCourseSectionCommand>
 {
     private readonly ICourseRepository _repository;
-
     public AddCourseSectionCommandHandler(ICourseRepository repository)
     {
         _repository = repository;
@@ -20,10 +21,9 @@ class AddCourseSectionCommandHandler : IBaseCommandHandler<AddCourseSectionComma
             return OperationResult.NotFound();
         }
 
-        course.AddSection(request.DisplayOrder, request.Title);
-        await _repository.Save();
-       
-      
+       course.AddSection(request.DisplayOrder, request.Title);
+       await _repository.Save();
+
         return OperationResult.Success();
     }
 }

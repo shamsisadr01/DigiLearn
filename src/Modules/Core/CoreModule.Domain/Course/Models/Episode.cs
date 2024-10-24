@@ -16,6 +16,10 @@ public class Episode : BaseEntity
     public bool IsActive { get; private set; }
     public bool IsFree { get; private set; }
 
+    private Episode()
+    {
+
+    }
     public Episode(string? attachmentName, string videoName, TimeSpan timeSpan, Guid token, string title, bool isActive, bool isFree, Guid sectionId, string englishTitle)
     {
         Guard(videoName, englishTitle, title);

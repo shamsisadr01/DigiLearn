@@ -4,6 +4,7 @@ using CoreModule.Infrastructure.Persistent.Course;
 using CoreModule.Infrastructure.Persistent.Users;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace CoreModule.Infrastructure.Persistent;
 
@@ -28,7 +29,7 @@ public class CoreModuleEfContext : BaseEfContext<CoreModuleEfContext>
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("dbo"); 
+        modelBuilder.HasDefaultSchema("dbo");
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CourseConfig).Assembly);
         base.OnModelCreating(modelBuilder);
     }

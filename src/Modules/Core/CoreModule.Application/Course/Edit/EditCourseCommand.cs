@@ -72,7 +72,7 @@ class EditCourseCommandHandler : IBaseCommandHandler<EditCourseCommand>
 
         course.Edit(request.Title, request.Description, imageName, videoPath,
             request.Price,
-            request.SeoData, request.CourseLevel, request.CourseStatus, request.CategoryId, request.SubCategoryId, request.Slug, request.CourseActionStatus,
+            request.CourseLevel, request.CourseStatus, request.CategoryId, request.SubCategoryId, request.Slug, request.CourseActionStatus,
             _domainService);
         await _repository.Save();
 

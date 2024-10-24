@@ -64,7 +64,7 @@ class QueryContext : DbContext
             builder.ToTable("OrderItems");
 
         });*/
-        modelBuilder.Entity<CourseQueryModel>(builder =>
+       /* modelBuilder.Entity<CourseQueryModel>(builder =>
         {
 
             builder.OwnsOne(b => b.SeoData, config =>
@@ -91,7 +91,7 @@ class QueryContext : DbContext
                 config.Property(b => b.Schema)
                     .HasColumnName("Schema");
             });
-        });
+        });*/
         base.OnModelCreating(modelBuilder);
     }
 }

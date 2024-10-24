@@ -41,7 +41,7 @@ class CreateCourseCommandHandler : IBaseCommandHandler<CreateCourseCommand>
 
         var course = new Domain.Course.Models.Course(request.Title, request.TeacherId, request.Description, imageName, videoPath,
             request.Price,
-            request.SeoData, request.CourseLevel, request.CategoryId, request.SubCategoryId, request.Slug, request.Status, _domainService)
+             request.CourseLevel, request.CategoryId, request.SubCategoryId, request.Slug, request.Status, _domainService)
         {
             Id = courseId
         };

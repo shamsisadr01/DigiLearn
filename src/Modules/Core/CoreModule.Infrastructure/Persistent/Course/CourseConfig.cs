@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.CodeAnalysis.Options;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CoreModule.Infrastructure.Persistent.Course;
@@ -11,11 +12,9 @@ public class CourseConfig : IEntityTypeConfiguration<Domain.Course.Models.Course
 
         builder.HasIndex(b => b.Slug).IsUnique();
 
-
         builder.Property(b => b.Title)
             .IsRequired()
             .HasMaxLength(200);
-
 
         builder.Property(b => b.ImageName)
             .IsRequired()
@@ -24,7 +23,7 @@ public class CourseConfig : IEntityTypeConfiguration<Domain.Course.Models.Course
         builder.Property(b => b.VideoName)
             .IsRequired(false);
 
-        builder.OwnsOne(b => b.SeoData, config =>
+       /* builder.OwnsOne(b => b.SeoData, config =>
         {
             config.Property(b => b.MetaDescription)
                 .HasMaxLength(500)
@@ -47,14 +46,14 @@ public class CourseConfig : IEntityTypeConfiguration<Domain.Course.Models.Course
 
             config.Property(b => b.Schema)
                 .HasColumnName("Schema");
-        });
+        });*/
 
 
         builder.OwnsMany(b => b.Sections, config =>
         {
             config.ToTable("Sections", "course");
             config.HasKey("Id");
-            config.WithOwner().HasForeignKey("CourseId");
+            config.HasIndex(b => b.CourseId);
 
             config.Property(b => b.Title)
                 .IsRequired()
@@ -65,7 +64,7 @@ public class CourseConfig : IEntityTypeConfiguration<Domain.Course.Models.Course
                 e.ToTable("Episodes", "course");
 
                 e.HasKey("Id");
-                e.WithOwner().HasForeignKey("SectionId");
+                e.HasIndex(b => b.SectionId);
 
                 e.Property(b => b.Title)
                     .HasMaxLength(100);

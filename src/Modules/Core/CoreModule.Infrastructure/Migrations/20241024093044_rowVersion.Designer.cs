@@ -4,6 +4,7 @@ using CoreModule.Infrastructure.Persistent;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreModule.Infrastructure.Migrations
 {
     [DbContext(typeof(CoreModuleEfContext))]
-    partial class CoreModuleEfContextModelSnapshot : ModelSnapshot
+    [Migration("20241024093044_rowVersion")]
+    partial class rowVersion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,6 +90,12 @@ namespace CoreModule.Infrastructure.Migrations
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.Property<string>("Slug")
                         .IsRequired()
@@ -205,6 +214,47 @@ namespace CoreModule.Infrastructure.Migrations
 
             modelBuilder.Entity("CoreModule.Domain.Course.Models.Course", b =>
                 {
+                    b.OwnsOne("Common.L1.Domain.ValueObjects.SeoData", "SeoData", b1 =>
+                        {
+                            b1.Property<Guid>("CourseId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Canonical")
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)")
+                                .HasColumnName("Canonical");
+
+                            b1.Property<bool>("IndexPage")
+                                .HasColumnType("bit")
+                                .HasColumnName("IndexPage");
+
+                            b1.Property<string>("MetaDescription")
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)")
+                                .HasColumnName("MetaDescription");
+
+                            b1.Property<string>("MetaKeyWords")
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)")
+                                .HasColumnName("MetaKeyWords");
+
+                            b1.Property<string>("MetaTitle")
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)")
+                                .HasColumnName("MetaTitle");
+
+                            b1.Property<string>("Schema")
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Schema");
+
+                            b1.HasKey("CourseId");
+
+                            b1.ToTable("Courses", "course");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CourseId");
+                        });
+
                     b.OwnsMany("CoreModule.Domain.Course.Models.Section", "Sections", b1 =>
                         {
                             b1.Property<Guid>("Id")
@@ -292,6 +342,9 @@ namespace CoreModule.Infrastructure.Migrations
                         });
 
                     b.Navigation("Sections");
+
+                    b.Navigation("SeoData")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CoreModule.Domain.Teacher.Models.Teacher", b =>

@@ -11,6 +11,11 @@ public class Section : BaseEntity
 
     public List<Episode> Episodes { get; private set; }
 
+    private Section()
+    {
+        Episodes = new();
+    }
+
     public Section(int displayOrder, string title, Guid courseId)
     {
         NullOrEmptyDomainDataException.CheckString(title, nameof(title));

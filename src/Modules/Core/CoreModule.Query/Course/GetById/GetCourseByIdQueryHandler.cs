@@ -39,7 +39,7 @@ class GetCourseByIdQueryHandler : IQueryHandler<GetCourseByIdQuery, CourseDto?>
             VideoName = course.VideoName,
             Price = course.Price,
             LastUpdate = course.LastUpdate,
-            SeoData = course.SeoData,
+           // SeoData = course.SeoData,
             CourseLevel = course.CourseLevel,
             CourseStatus = course.CourseStatus,
             Status = course.Status,
