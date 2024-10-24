@@ -2,6 +2,8 @@
 using Common.L1.Domain;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using System;
+using AngleSharp.Dom;
 
 namespace Common.L3.Infrastructure.Repository;
 
@@ -37,6 +39,12 @@ public class BaseRepository<T, TContext> : IBaseRepository<T>
     {
         Context.Update(entity);
     }
+
+    public void Remove(T entity)
+    {
+        Context.Remove(entity);
+    }
+
     public async Task<int> Save()
     {
         return await Context.SaveChangesAsync();

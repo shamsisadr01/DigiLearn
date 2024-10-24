@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Profile\Teacher\Courses\Sections\" />
     <Folder Include="wwwroot\ckeditor4\plugins\inserthtmlfile\.git\lfs\objects\logs\" />
     <Folder Include="wwwroot\ckeditor4\plugins\inserthtmlfile\.git\lfs\tmp\objects\" />
     <Folder Include="wwwroot\ckeditor4\plugins\inserthtmlfile\.git\objects\info\" />

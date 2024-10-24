@@ -53,6 +53,8 @@ public class CourseConfig : IEntityTypeConfiguration<Domain.Course.Models.Course
         builder.OwnsMany(b => b.Sections, config =>
         {
             config.ToTable("Sections", "course");
+            config.HasKey("Id");
+            config.WithOwner().HasForeignKey("CourseId");
 
             config.Property(b => b.Title)
                 .IsRequired()
@@ -61,6 +63,9 @@ public class CourseConfig : IEntityTypeConfiguration<Domain.Course.Models.Course
             config.OwnsMany(r => r.Episodes, e =>
             {
                 e.ToTable("Episodes", "course");
+
+                e.HasKey("Id");
+                e.WithOwner().HasForeignKey("SectionId");
 
                 e.Property(b => b.Title)
                     .HasMaxLength(100);
@@ -79,5 +84,7 @@ public class CourseConfig : IEntityTypeConfiguration<Domain.Course.Models.Course
                     .HasMaxLength(200);
             });
         });
+
+
     }
 }

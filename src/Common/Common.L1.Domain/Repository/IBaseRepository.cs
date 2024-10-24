@@ -20,6 +20,7 @@ public interface IBaseRepository<T> where T : BaseEntity
     Task AddRange(ICollection<T> entities);
 
     void Update(T entity);
+    void Remove(T entity);
 
     Task<int> Save();
     void SaveSync();

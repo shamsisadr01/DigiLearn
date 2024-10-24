@@ -14,7 +14,7 @@ public class BaseEfContext<T> : DbContext where T : DbContext
         _mediator = mediator;
     }
 
-    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
+   /* public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
     {
         var modifiedEntities = GetModifiedEntities();
         var res = await base.SaveChangesAsync(cancellationToken);
@@ -38,5 +38,5 @@ public class BaseEfContext<T> : DbContext where T : DbContext
                 await _mediator.Publish(domainEvent);
             }
         }
-    }
+    }*/
 }

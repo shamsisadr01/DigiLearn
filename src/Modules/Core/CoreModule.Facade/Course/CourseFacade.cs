@@ -1,8 +1,10 @@
 ﻿using Common.L2.Application;
 using CoreModule.Application.Course.Create;
 using CoreModule.Application.Course.Edit;
+using CoreModule.Application.Course.Sections.Add;
 using CoreModule.Query.Course._DTOs;
 using CoreModule.Query.Course.GetByFilter;
+using CoreModule.Query.Course.GetById;
 using MediatR;
 
 namespace CoreModule.Facade.Course;
@@ -26,12 +28,12 @@ class CourseFacade : ICourseFacade
         return await _mediator.Send(command);
     }
 
-    /* public async Task<OperationResult> AddSection(AddCourseSectionCommand command)
+     public async Task<OperationResult> AddSection(AddCourseSectionCommand command)
     {
         return await _mediator.Send(command);
     }
 
-    public async Task<OperationResult> AddEpisode(AddCourseEpisodeCommand command)
+    /*public async Task<OperationResult> AddEpisode(AddCourseEpisodeCommand command)
     {
         return await _mediator.Send(command);
     }
@@ -58,13 +60,13 @@ class CourseFacade : ICourseFacade
 
     }
 
-   /* public async Task<CourseDto?> GetCourseById(Guid id)
+    public async Task<CourseDto?> GetCourseById(Guid id)
     {
         return await _mediator.Send(new GetCourseByIdQuery(id));
 
     }
 
-    public async Task<CourseDto?> GetCourseBySlug(string slug)
+    /*public async Task<CourseDto?> GetCourseBySlug(string slug)
     {
         return await _mediator.Send(new GetCourseBySlugQuery(slug));
 

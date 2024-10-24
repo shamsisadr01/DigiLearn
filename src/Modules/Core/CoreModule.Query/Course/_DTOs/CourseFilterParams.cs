@@ -33,24 +33,5 @@ public class CourseFilterData : BaseDto
     public List<CourseSectionDto> Sections { get; set; }
 }
 
-public class CourseSectionDto : BaseDto
-{
-    public Guid CourseId { get; set; }
-    public string Title { get; set; }
-    public int DisplayOrder { get; set; }
 
-    public List<EpisodeDto> Episodes { get; set; }
-}
 
-public class EpisodeDto : BaseDto
-{
-    public Guid SectionId { get; set; }
-    public string Title { get; set; }
-    public string EnglishTitle { get; set; }
-    public Guid Token { get; set; }
-    public TimeSpan TimeSpan { get; set; }
-    public string VideoName { get; set; }
-    public string? AttachmentName { get; set; }
-    public bool IsActive { get; set; }
-    public bool IsFree { get; set; }
-}

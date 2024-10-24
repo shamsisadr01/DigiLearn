@@ -4,6 +4,7 @@ using CoreModule.Infrastructure.Persistent;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreModule.Infrastructure.Migrations
 {
     [DbContext(typeof(CoreModuleEfContext))]
-    partial class CoreModuleEfContextModelSnapshot : ModelSnapshot
+    [Migration("20241023173511_Update")]
+    partial class Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -248,11 +251,11 @@ namespace CoreModule.Infrastructure.Migrations
 
                     b.OwnsMany("CoreModule.Domain.Course.Models.Section", "Sections", b1 =>
                         {
-                            b1.Property<Guid>("Id")
-                                .ValueGeneratedOnAdd()
+                            b1.Property<Guid>("CourseId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<Guid>("CourseId")
+                            b1.Property<Guid>("Id")
+                                .ValueGeneratedOnAdd()
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<DateTime>("CreationDate")
@@ -266,9 +269,7 @@ namespace CoreModule.Infrastructure.Migrations
                                 .HasMaxLength(100)
                                 .HasColumnType("nvarchar(100)");
 
-                            b1.HasKey("Id");
-
-                            b1.HasIndex("CourseId");
+                            b1.HasKey("CourseId", "Id");
 
                             b1.ToTable("Sections", "course");
 
@@ -277,6 +278,12 @@ namespace CoreModule.Infrastructure.Migrations
 
                             b1.OwnsMany("CoreModule.Domain.Course.Models.Episode", "Episodes", b2 =>
                                 {
+                                    b2.Property<Guid>("SectionCourseId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<Guid>("SectionId")
+                                        .HasColumnType("uniqueidentifier");
+
                                     b2.Property<Guid>("Id")
                                         .ValueGeneratedOnAdd()
                                         .HasColumnType("uniqueidentifier");
@@ -300,9 +307,6 @@ namespace CoreModule.Infrastructure.Migrations
                                     b2.Property<bool>("IsFree")
                                         .HasColumnType("bit");
 
-                                    b2.Property<Guid>("SectionId")
-                                        .HasColumnType("uniqueidentifier");
-
                                     b2.Property<TimeSpan>("TimeSpan")
                                         .HasColumnType("time");
 
@@ -319,14 +323,12 @@ namespace CoreModule.Infrastructure.Migrations
                                         .HasMaxLength(200)
                                         .HasColumnType("nvarchar(200)");
 
-                                    b2.HasKey("Id");
-
-                                    b2.HasIndex("SectionId");
+                                    b2.HasKey("SectionCourseId", "SectionId", "Id");
 
                                     b2.ToTable("Episodes", "course");
 
                                     b2.WithOwner()
-                                        .HasForeignKey("SectionId");
+                                        .HasForeignKey("SectionCourseId", "SectionId");
                                 });
 
                             b1.Navigation("Episodes");

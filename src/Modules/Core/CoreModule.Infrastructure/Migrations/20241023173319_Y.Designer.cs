@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreModule.Infrastructure.Migrations
 {
     [DbContext(typeof(CoreModuleEfContext))]
-    [Migration("20241022054946_Init_CoreModule")]
-    partial class Init_CoreModule
+    [Migration("20241023173319_Y")]
+    partial class Y
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -263,6 +263,12 @@ namespace CoreModule.Infrastructure.Migrations
 
                             b1.Property<int>("DisplayOrder")
                                 .HasColumnType("int");
+
+                            b1.Property<byte[]>("RowVersion")
+                                .IsConcurrencyToken()
+                                .IsRequired()
+                                .ValueGeneratedOnAddOrUpdate()
+                                .HasColumnType("rowversion");
 
                             b1.Property<string>("Title")
                                 .IsRequired()

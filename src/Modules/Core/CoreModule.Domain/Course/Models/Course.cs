@@ -82,12 +82,13 @@ public class Course : AggregateRoot
         Status = status;
     }
 
-    public void AddSection(int displayOrder, string title)
+    public void AddSection(int displayOrder,string title)
     {
         if (Sections.Any(f => f.Title == title))
             throw new InvalidDomainDataException("title Is Exist");
 
-        Sections.Add(new Section(displayOrder, title, Id));
+       var section = new Section(displayOrder, title, Id);
+       Sections.Add(section);
     }
 
     public void EditSection(Guid sectionId, int displayOrder, string title)
