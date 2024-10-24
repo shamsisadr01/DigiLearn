@@ -1,6 +1,7 @@
 ﻿using Common.L2.Application;
 using CoreModule.Application.Course.Create;
 using CoreModule.Application.Course.Edit;
+using CoreModule.Application.Course.Episodes.Add;
 using CoreModule.Application.Course.Sections.Add;
 using CoreModule.Query.Course._DTOs;
 using CoreModule.Query.Course.GetByFilter;
@@ -33,12 +34,12 @@ class CourseFacade : ICourseFacade
         return await _mediator.Send(command);
     }
 
-    /*public async Task<OperationResult> AddEpisode(AddCourseEpisodeCommand command)
+    public async Task<OperationResult> AddEpisode(AddCourseEpisodeCommand command)
     {
         return await _mediator.Send(command);
     }
 
-    public async Task<OperationResult> AcceptEpisode(AcceptCourseEpisodeCommand command)
+   /* public async Task<OperationResult> AcceptEpisode(AcceptCourseEpisodeCommand command)
     {
         return await _mediator.Send(command);
     }

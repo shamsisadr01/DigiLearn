@@ -1,6 +1,7 @@
 ﻿using Common.L2.Application;
 using CoreModule.Application.Course.Create;
 using CoreModule.Application.Course.Edit;
+using CoreModule.Application.Course.Episodes.Add;
 using CoreModule.Application.Course.Sections.Add;
 using CoreModule.Query.Course._DTOs;
 
@@ -11,8 +12,8 @@ public interface ICourseFacade
     Task<OperationResult> Create(CreateCourseCommand command);
     Task<OperationResult> Edit(EditCourseCommand command);
     Task<OperationResult> AddSection(AddCourseSectionCommand command);
-   /* Task<OperationResult> AddEpisode(AddCourseEpisodeCommand command);
-    Task<OperationResult> AcceptEpisode(AcceptCourseEpisodeCommand command);
+    Task<OperationResult> AddEpisode(AddCourseEpisodeCommand command);
+    /*Task<OperationResult> AcceptEpisode(AcceptCourseEpisodeCommand command);
     Task<OperationResult> DeleteEpisode(DeleteCourseEpisodeCommand command);
     Task<OperationResult> EditEpisode(EditEpisodeCommand command);*/
 
