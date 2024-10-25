@@ -14,6 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\lfs\objects\logs\" />
+    <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\lfs\tmp\objects\" />
+    <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\info\" />
+    <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\pack\" />
+    <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\refs\tags\" />
     <Folder Include="wwwroot\ckeditor4\plugins\inserthtmlfile\.git\lfs\objects\logs\" />
     <Folder Include="wwwroot\ckeditor4\plugins\inserthtmlfile\.git\lfs\tmp\objects\" />
     <Folder Include="wwwroot\ckeditor4\plugins\inserthtmlfile\.git\objects\info\" />
@@ -24,6 +29,67 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\COMMIT_EDITMSG" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\config" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\description" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\HEAD" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\hooks\applypatch-msg.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\hooks\commit-msg.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\hooks\post-update.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\hooks\pre-applypatch.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\hooks\pre-commit.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\hooks\pre-push.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\hooks\pre-rebase.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\hooks\update.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\index" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\info\exclude" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\logs\HEAD" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\logs\refs\heads\master" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\logs\refs\remotes\Origin\master" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\objects\4a\ad3f3a539040f62899e895a78c122c7c8a3d44" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\objects\60\ec08986d1e519241b9c85383117d8de38981d8" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\objects\6a\4fa6340373600125654874fcef59743fbef140" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\objects\76\6a3fa4f468ea6a3e01852167deb898a93ec77c" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\objects\78\1f35eabfcabcddc2b09be57e74320689f5e34f" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\objects\80\105f1247d6aa64e17f3db027fe747c0b1811fa" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\objects\b6\e4eb91d44d198074517fc6baee5bd718322b3d" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\refs\heads\master" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\refs\remotes\Origin\master" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtml4x\.git\sourcetreeconfig" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\COMMIT_EDITMSG" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\config" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\description" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\FETCH_HEAD" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\HEAD" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\applypatch-msg.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\commit-msg.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\post-update.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\pre-applypatch.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\pre-commit.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\pre-push.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\pre-rebase.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\pre-receive.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\hooks\update.sample" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\index" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\info\exclude" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\logs\HEAD" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\logs\refs\heads\master" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\logs\refs\remotes\origin\master" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\1e\0b37d1fec3da6cbff4f4ad880294adc5ff8dbb" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\1f\2a586a7bbaff0bbba9e8de59be253a31ec0b8b" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\34\017ec3ab9e3ec2c4332bb2c072a062b12c31c8" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\3e\29079c8198e86c04749fb19488248f47c32f6f" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\5b\8697c42fb46bd987fa82873e9c7dcbd886fa2c" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\91\1a2807da1e22d38fc9acd99573df004feaf7b6" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\99\112d864fd1f24cd9b6224e875633ac00719f4f" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\9e\c7ff8c590bca41030df242eba04d01d8fa6974" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\a1\7c2c9725c10bb9fc2757d47fa2471b25829bca" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\c4\c1da89bab32605ea45c35e3414188fab564715" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\df\e0770424b2a19faf507a501ebfc23be8f54e7b" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\refs\heads\master" />
+    <None Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\refs\remotes\origin\master" />
     <None Include="wwwroot\ckeditor4\plugins\inserthtml4x\.git\COMMIT_EDITMSG" />
     <None Include="wwwroot\ckeditor4\plugins\inserthtml4x\.git\config" />
     <None Include="wwwroot\ckeditor4\plugins\inserthtml4x\.git\description" />

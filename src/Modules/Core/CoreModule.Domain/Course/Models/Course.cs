@@ -9,6 +9,7 @@ namespace CoreModule.Domain.Course.Models;
 
 public class Course : AggregateRoot
 {
+
     public Guid TeacherId { get; private set; }
     public Guid CategoryId { get; private set; }
     public Guid SubCategoryId { get; private set; }
