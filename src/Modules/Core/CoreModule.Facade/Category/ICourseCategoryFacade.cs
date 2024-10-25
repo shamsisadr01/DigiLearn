@@ -16,6 +16,6 @@ public interface ICourseCategoryFacade
 
 
     Task<List<CourseCategoryDto>> GetMainCategories();
-    //Task<CourseCategoryDto?> GetById(Guid categoryId);
+    Task<CourseCategoryDto?> GetById(Guid categoryId);
     Task<List<CourseCategoryDto>> GetChildren(Guid parentId);
 }

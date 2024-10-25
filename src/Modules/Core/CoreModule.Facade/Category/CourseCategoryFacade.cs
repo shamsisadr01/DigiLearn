@@ -5,6 +5,7 @@ using CoreModule.Application.Category.Delete;
 using CoreModule.Application.Category.Edit;
 using CoreModule.Query.Category._DTOs;
 using CoreModule.Query.Category.GetAll;
+using CoreModule.Query.Category.GetById;
 using CoreModule.Query.Category.GetChildren;
 using MediatR;
 
@@ -46,10 +47,10 @@ class CourseCategoryFacade : ICourseCategoryFacade
 
     }
 
-    /*public async Task<CourseCategoryDto?> GetById(Guid categoryId)
+    public async Task<CourseCategoryDto?> GetById(Guid categoryId)
     {
         return await _mediator.Send(new GetCourseCategoryByIdQuery(categoryId));
-    }*/
+    }
 
     public async Task<List<CourseCategoryDto>> GetChildren(Guid parentId)
     {
