@@ -11,7 +11,7 @@ public interface ITeacherFacade
     Task<OperationResult> Register(RegisterTeacherCommand command);
     Task<OperationResult> AcceptRequest(AcceptTeacherRequestCommand command);
     Task<OperationResult> RejectRequest(RejectTeacherRequestCommand command);
-   // Task<OperationResult> ToggleStatus(Guid teacherId);
+    Task<OperationResult> ToggleStatus(Guid teacherId);
 
 
 

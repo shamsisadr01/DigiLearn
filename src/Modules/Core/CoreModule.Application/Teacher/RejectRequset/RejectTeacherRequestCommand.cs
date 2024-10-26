@@ -1,4 +1,5 @@
 ﻿using Common.L2.Application;
+using CoreModule.Domain.Teacher.Events;
 using CoreModule.Domain.Teacher.Repositories;
 using MediatR;
 
@@ -32,11 +33,11 @@ public class RejectTeacherRequestCommandHandler : IBaseCommandHandler<RejectTeac
         _repository.Delete(teacher);
         //Send Event
         await _repository.Save();
-       /* await _mediator.Publish(new RejectTeacherRequestEvent()
+        await _mediator.Publish(new RejectTeacherRequestEvent()
         {
             Description = request.Description,
             UserId = teacher.UserId
-        }, cancellationToken);*/
+        }, cancellationToken);
         return OperationResult.Success();
     }
 }

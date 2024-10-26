@@ -287,7 +287,7 @@ $(document).on("submit",
 $(document).ready(function () {
    // loadCkeditor5();
     loadCkeditor4();
-   // loadDataTable();
+    loadDataTable();
    // loadSelect2();
     var result = getCookie("SystemAlert");
     if (result) {

@@ -3,6 +3,7 @@ using Common.L1.Domain.Exceptions;
 using Common.L1.Domain.Utilities;
 using CoreModule.Domain.Teacher.DomainServices;
 using CoreModule.Domain.Teacher.Enums;
+using CoreModule.Domain.Teacher.Events;
 
 namespace CoreModule.Domain.Teacher.Models;
 
@@ -50,11 +51,11 @@ public class Teacher : AggregateRoot
     {
         if (Status == TeacherStatus.Pending)
         {
-           /* //Event
+            //Event
             AddDomainEvent(new AcceptTeacherRequestEvent()
             {
                 UserId = UserId
-            });*/
+            });
             Status = TeacherStatus.Active;
         }
     }

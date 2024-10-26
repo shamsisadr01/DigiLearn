@@ -2,6 +2,7 @@
 using CoreModule.Application.Teacher.AcceptRequest;
 using CoreModule.Application.Teacher.Register;
 using CoreModule.Application.Teacher.RejectRequset;
+using CoreModule.Application.Teacher.ToggleStatus;
 using CoreModule.Query.Teacher._DTOS;
 using CoreModule.Query.Teacher.GetById;
 using CoreModule.Query.Teacher.GetByUserId;
@@ -34,11 +35,11 @@ public class TeacherFacade : ITeacherFacade
         return await _mediator.Send(command);
     }
 
-    /*  public async Task<OperationResult> ToggleStatus(Guid teacherId)
+      public async Task<OperationResult> ToggleStatus(Guid teacherId)
     {
         return await _mediator.Send(new ToggleTeacherStatusCommand(teacherId));
 
-    }*/
+    }
 
     public async Task<TeacherDto?> GetById(Guid id)
     {

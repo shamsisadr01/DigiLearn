@@ -13,6 +13,7 @@
     <Folder Include="Course\Sections\Edit\" />
     <Folder Include="Course\Sections\Delete\" />
     <Folder Include="Course\Sections\" />
+    <Folder Include="Teacher\_EventHandlers\" />
     <Folder Include="Teacher\RejectRequset\" />
   </ItemGroup>
 
