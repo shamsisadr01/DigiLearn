@@ -1,9 +1,13 @@
 ﻿using Common.L2.Application;
 using CoreModule.Application.Course.Create;
 using CoreModule.Application.Course.Edit;
+using CoreModule.Application.Course.Episodes.Accept;
 using CoreModule.Application.Course.Episodes.Add;
+using CoreModule.Application.Course.Episodes.Delete;
+using CoreModule.Application.Course.Episodes.Edit;
 using CoreModule.Application.Course.Sections.Add;
 using CoreModule.Query.Course._DTOs;
+using CoreModule.Query.Course.Episodes;
 using CoreModule.Query.Course.GetByFilter;
 using CoreModule.Query.Course.GetById;
 using MediatR;
@@ -39,7 +43,7 @@ class CourseFacade : ICourseFacade
         return await _mediator.Send(command);
     }
 
-   /* public async Task<OperationResult> AcceptEpisode(AcceptCourseEpisodeCommand command)
+    public async Task<OperationResult> AcceptEpisode(AcceptCourseEpisodeCommand command)
     {
         return await _mediator.Send(command);
     }
@@ -52,8 +56,7 @@ class CourseFacade : ICourseFacade
     public async Task<OperationResult> EditEpisode(EditEpisodeCommand command)
     {
         return await _mediator.Send(command);
-
-    }*/
+    }
 
     public async Task<CourseFilterResult> GetCourseFilter(CourseFilterParams param)
     {
@@ -67,15 +70,15 @@ class CourseFacade : ICourseFacade
 
     }
 
-    /*public async Task<CourseDto?> GetCourseBySlug(string slug)
+  /*  public async Task<CourseDto?> GetCourseBySlug(string slug)
     {
         return await _mediator.Send(new GetCourseBySlugQuery(slug));
 
-    }
+    }*/
 
     public async Task<EpisodeDto?> GetEpisodeById(Guid id)
     {
         return await _mediator.Send(new GetEpisodeByIdQuery(id));
 
-    }*/
+    }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreModule.Infrastructure.Migrations
 {
     [DbContext(typeof(CoreModuleEfContext))]
-    [Migration("20241023173319_Y")]
-    partial class Y
+    [Migration("20241026080236_Init_CoreModules")]
+    partial class Init_CoreModules
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,7 +29,6 @@ namespace CoreModule.Infrastructure.Migrations
             modelBuilder.Entity("CoreModule.Domain.Category.Models.CourseCategory", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreationDate")
@@ -61,7 +60,6 @@ namespace CoreModule.Infrastructure.Migrations
             modelBuilder.Entity("CoreModule.Domain.Course.Models.Course", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CategoryId")
@@ -123,7 +121,6 @@ namespace CoreModule.Infrastructure.Migrations
             modelBuilder.Entity("CoreModule.Domain.Teacher.Models.Teacher", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreationDate")
@@ -159,7 +156,6 @@ namespace CoreModule.Infrastructure.Migrations
             modelBuilder.Entity("CoreModule.Infrastructure.Persistent.Users.User", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Avatar")
@@ -208,54 +204,12 @@ namespace CoreModule.Infrastructure.Migrations
 
             modelBuilder.Entity("CoreModule.Domain.Course.Models.Course", b =>
                 {
-                    b.OwnsOne("Common.L1.Domain.ValueObjects.SeoData", "SeoData", b1 =>
-                        {
-                            b1.Property<Guid>("CourseId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Canonical")
-                                .HasMaxLength(500)
-                                .HasColumnType("nvarchar(500)")
-                                .HasColumnName("Canonical");
-
-                            b1.Property<bool>("IndexPage")
-                                .HasColumnType("bit")
-                                .HasColumnName("IndexPage");
-
-                            b1.Property<string>("MetaDescription")
-                                .HasMaxLength(500)
-                                .HasColumnType("nvarchar(500)")
-                                .HasColumnName("MetaDescription");
-
-                            b1.Property<string>("MetaKeyWords")
-                                .HasMaxLength(500)
-                                .HasColumnType("nvarchar(500)")
-                                .HasColumnName("MetaKeyWords");
-
-                            b1.Property<string>("MetaTitle")
-                                .HasMaxLength(500)
-                                .HasColumnType("nvarchar(500)")
-                                .HasColumnName("MetaTitle");
-
-                            b1.Property<string>("Schema")
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Schema");
-
-                            b1.HasKey("CourseId");
-
-                            b1.ToTable("Courses", "course");
-
-                            b1.WithOwner()
-                                .HasForeignKey("CourseId");
-                        });
-
                     b.OwnsMany("CoreModule.Domain.Course.Models.Section", "Sections", b1 =>
                         {
                             b1.Property<Guid>("CourseId")
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<Guid>("Id")
-                                .ValueGeneratedOnAdd()
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<DateTime>("CreationDate")
@@ -263,12 +217,6 @@ namespace CoreModule.Infrastructure.Migrations
 
                             b1.Property<int>("DisplayOrder")
                                 .HasColumnType("int");
-
-                            b1.Property<byte[]>("RowVersion")
-                                .IsConcurrencyToken()
-                                .IsRequired()
-                                .ValueGeneratedOnAddOrUpdate()
-                                .HasColumnType("rowversion");
 
                             b1.Property<string>("Title")
                                 .IsRequired()
@@ -291,7 +239,6 @@ namespace CoreModule.Infrastructure.Migrations
                                         .HasColumnType("uniqueidentifier");
 
                                     b2.Property<Guid>("Id")
-                                        .ValueGeneratedOnAdd()
                                         .HasColumnType("uniqueidentifier");
 
                                     b2.Property<string>("AttachmentName")
@@ -341,9 +288,6 @@ namespace CoreModule.Infrastructure.Migrations
                         });
 
                     b.Navigation("Sections");
-
-                    b.Navigation("SeoData")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("CoreModule.Domain.Teacher.Models.Teacher", b =>

@@ -32,6 +32,11 @@ class GetCoursesByFilterQueryHandler : IQueryHandler<GetCoursesByFilterQuery, Co
         if (request.FilterParams.TeacherId != null)
             result = result.Where(r => r.TeacherId == request.FilterParams.TeacherId);
 
+        if (request.FilterParams.ActionStatus != null)
+        {
+            result = result.Where(r => r.Status == request.FilterParams.ActionStatus);
+        }
+
         var skip = (request.FilterParams.PageId - 1) * request.FilterParams.Take;
 
         var data = await result.Skip(skip).Take(request.FilterParams.Take)
@@ -48,6 +53,7 @@ class GetCoursesByFilterQueryHandler : IQueryHandler<GetCoursesByFilterQuery, Co
                     Title = s.Title,
                     Slug = s.Slug,
                     Price = s.Price,
+                    CourseStatus = s.Status
                 }).ToList()
         };
 

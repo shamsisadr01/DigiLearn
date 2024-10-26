@@ -26,7 +26,6 @@ namespace CoreModule.Infrastructure.Migrations
             modelBuilder.Entity("CoreModule.Domain.Category.Models.CourseCategory", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreationDate")
@@ -58,7 +57,6 @@ namespace CoreModule.Infrastructure.Migrations
             modelBuilder.Entity("CoreModule.Domain.Course.Models.Course", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CategoryId")
@@ -120,7 +118,6 @@ namespace CoreModule.Infrastructure.Migrations
             modelBuilder.Entity("CoreModule.Domain.Teacher.Models.Teacher", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreationDate")
@@ -156,7 +153,6 @@ namespace CoreModule.Infrastructure.Migrations
             modelBuilder.Entity("CoreModule.Infrastructure.Persistent.Users.User", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Avatar")
@@ -207,11 +203,10 @@ namespace CoreModule.Infrastructure.Migrations
                 {
                     b.OwnsMany("CoreModule.Domain.Course.Models.Section", "Sections", b1 =>
                         {
-                            b1.Property<Guid>("Id")
-                                .ValueGeneratedOnAdd()
+                            b1.Property<Guid>("CourseId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<Guid>("CourseId")
+                            b1.Property<Guid>("Id")
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<DateTime>("CreationDate")
@@ -225,9 +220,7 @@ namespace CoreModule.Infrastructure.Migrations
                                 .HasMaxLength(100)
                                 .HasColumnType("nvarchar(100)");
 
-                            b1.HasKey("Id");
-
-                            b1.HasIndex("CourseId");
+                            b1.HasKey("CourseId", "Id");
 
                             b1.ToTable("Sections", "course");
 
@@ -236,8 +229,13 @@ namespace CoreModule.Infrastructure.Migrations
 
                             b1.OwnsMany("CoreModule.Domain.Course.Models.Episode", "Episodes", b2 =>
                                 {
+                                    b2.Property<Guid>("SectionCourseId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<Guid>("SectionId")
+                                        .HasColumnType("uniqueidentifier");
+
                                     b2.Property<Guid>("Id")
-                                        .ValueGeneratedOnAdd()
                                         .HasColumnType("uniqueidentifier");
 
                                     b2.Property<string>("AttachmentName")
@@ -259,9 +257,6 @@ namespace CoreModule.Infrastructure.Migrations
                                     b2.Property<bool>("IsFree")
                                         .HasColumnType("bit");
 
-                                    b2.Property<Guid>("SectionId")
-                                        .HasColumnType("uniqueidentifier");
-
                                     b2.Property<TimeSpan>("TimeSpan")
                                         .HasColumnType("time");
 
@@ -278,14 +273,12 @@ namespace CoreModule.Infrastructure.Migrations
                                         .HasMaxLength(200)
                                         .HasColumnType("nvarchar(200)");
 
-                                    b2.HasKey("Id");
-
-                                    b2.HasIndex("SectionId");
+                                    b2.HasKey("SectionCourseId", "SectionId", "Id");
 
                                     b2.ToTable("Episodes", "course");
 
                                     b2.WithOwner()
-                                        .HasForeignKey("SectionId");
+                                        .HasForeignKey("SectionCourseId", "SectionId");
                                 });
 
                             b1.Navigation("Episodes");

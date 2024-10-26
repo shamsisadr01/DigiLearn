@@ -1,11 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿
 using Common.L1.Domain;
-using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlogModule.Domain;
 
-[Index("Slug",IsUnique = true)]
+[Microsoft.EntityFrameworkCore.Index("Slug",IsUnique = true)]
 [Table("Posts",Schema = "dbo")]
 public class Post : BaseEntity
 {

@@ -40,6 +40,19 @@ public class Episode : BaseEntity
         IsActive = !IsActive;
     }
 
+    public void Edit(string title, bool isActive, bool isFree, TimeSpan timeSpan, string? attachmentName)
+    {
+        NullOrEmptyDomainDataException.CheckString(title, nameof(title));
+        Title = title;
+        IsActive = isActive;
+        IsFree = isFree;
+        TimeSpan = timeSpan;
+        if (string.IsNullOrWhiteSpace(attachmentName) == false)
+        {
+            AttachmentName = attachmentName;
+        }
+    }
+
     void Guard(string videoName, string englishTitle, string title)
     {
         NullOrEmptyDomainDataException.CheckString(videoName, nameof(videoName));

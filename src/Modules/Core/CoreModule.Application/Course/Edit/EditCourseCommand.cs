@@ -23,7 +23,7 @@ public class EditCourseCommand : IBaseCommand
     public IFormFile? ImageFile { get; set; }
     public IFormFile? VideoFile { get; set; }
     public int Price { get; set; }
-    public SeoData SeoData { get; set; }
+  //  public SeoData SeoData { get; set; }
 
     public CourseLevel CourseLevel { get; set; }
     public CourseStatus CourseStatus { get; set; }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CoreModule.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Init_CoreModule : Migration
+    public partial class Init_CoreModules : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,12 +56,6 @@ namespace CoreModule.Infrastructure.Migrations
                     VideoName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
                     LastUpdate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    MetaTitle = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    MetaDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    MetaKeyWords = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    IndexPage = table.Column<bool>(type: "bit", nullable: false),
-                    Canonical = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    Schema = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CourseLevel = table.Column<int>(type: "int", nullable: false),
                     CourseStatus = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),

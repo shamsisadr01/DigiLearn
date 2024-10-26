@@ -21,7 +21,8 @@ namespace DigiLearn.Pages.Profile.Teacher.Courses
         public CourseFilterResult FilterResult { get; set; }
         public async Task OnGet()
         {
-            var teacher = await _teacherFacade.GetByUserId(User.GetUserId());
+            var id = User.GetUserId();
+            var teacher = await _teacherFacade.GetByUserId(id);
             FilterParams.TeacherId = teacher!.Id;
             FilterResult = await _courseFacade.GetCourseFilter(FilterParams);
         }

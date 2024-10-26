@@ -52,8 +52,6 @@ public class CourseConfig : IEntityTypeConfiguration<Domain.Course.Models.Course
         builder.OwnsMany(b => b.Sections, config =>
         {
             config.ToTable("Sections", "course");
-            config.HasKey("Id");
-            config.HasIndex(b => b.CourseId);
 
             config.Property(b => b.Title)
                 .IsRequired()
@@ -63,8 +61,8 @@ public class CourseConfig : IEntityTypeConfiguration<Domain.Course.Models.Course
             {
                 e.ToTable("Episodes", "course");
 
-                e.HasKey("Id");
-                e.HasIndex(b => b.SectionId);
+               // e.HasKey("Id");
+           
 
                 e.Property(b => b.Title)
                     .HasMaxLength(100);
