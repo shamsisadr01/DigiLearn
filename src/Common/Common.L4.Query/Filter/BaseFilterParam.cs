@@ -2,7 +2,7 @@
 {
 	public class BaseFilterParam
 	{
-		public int PageId { get; set; } = 1;
+		public int PageId { get; set; } = 5;
 		public int Take { get; set; } = 10;
 	}
 }
