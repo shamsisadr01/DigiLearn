@@ -10,10 +10,17 @@ public class CourseFilterParams : BaseFilterParam
     public CourseActionStatus? ActionStatus { get; set; } = null;
     public CourseStatus? CourseStatus { get; set; } = null;
     public CourseLevel? CourseLevel { get; set; } = null;
-   // public CourseFilterSort FilterSort { get; set; } = CourseFilterSort.Latest;
+    public CourseFilterSort FilterSort { get; set; } = CourseFilterSort.Latest;
    // public SearchByPrice SearchByPrice { get; set; } = SearchByPrice.All;
     public string CategorySlug { get; set; }
     public string Search { get; set; }
+}
+
+public enum CourseFilterSort
+{
+    Latest,
+    Oldest,
+    Expensive,
 }
 
 public class CourseFilterResult : BaseFilter<CourseFilterData, CourseFilterParams>

@@ -37,6 +37,20 @@ class GetCoursesByFilterQueryHandler : IQueryHandler<GetCoursesByFilterQuery, Co
             result = result.Where(r => r.Status == request.FilterParams.ActionStatus);
         }
 
+        switch (request.FilterParams.FilterSort)
+        {
+            case CourseFilterSort.Latest:
+                result = result.OrderByDescending(d => d.LastUpdate);
+                break;
+            case CourseFilterSort.Expensive:
+                result = result.OrderByDescending(d => d.Price);
+                break;
+            case CourseFilterSort.Oldest:
+                result = result.OrderBy(d => d.LastUpdate);
+                break;
+        }
+
+
         var skip = (request.FilterParams.PageId - 1) * request.FilterParams.Take;
 
         var data = await result.Skip(skip).Take(request.FilterParams.Take)

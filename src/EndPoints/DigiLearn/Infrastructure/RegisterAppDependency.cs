@@ -2,6 +2,7 @@
 using Common.EventBus.Abstractions;
 using Common.EventBus.RabbitMQ;
 using DigiLearn.Infrastructure.RazorUtils;
+using DigiLearn.Infrastructure.Services;
 
 namespace DigiLearn.Infrastructure;
 
@@ -15,6 +16,8 @@ public static class RegisterAppDependency
         services.AddTransient<IRenderViewToString,RenderViewToString>();
 
         services.AddSingleton<IEventBus, EventBusRabbitMQ>();
+
+        services.AddScoped<IHomePageService, HomePageService>();
 
     }
 }

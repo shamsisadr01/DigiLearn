@@ -21,10 +21,10 @@ public class CoreModuleInfrastructureBootstrapper
         services.AddScoped<ITeacherRepository, TeacherRepository>();
         /*services.AddScoped<IOrderRepository, OrderRepository>();
 
-        services.AddHostedService<UserEditedEventHandler>();
         services.AddHostedService<UserChangeAvatarEventHandler>();*/
 
         services.AddHostedService<UserRegisteredEventHandler>();
+        services.AddHostedService<UserEditedEventHandler>();
 
         services.AddDbContext<CoreModuleEfContext>(option =>
         {

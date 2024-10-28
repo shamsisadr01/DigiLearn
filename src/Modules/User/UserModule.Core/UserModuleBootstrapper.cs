@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UserModule.Core.EventHandlers;
 using UserModule.Core.Services;
 using UserModule.Data;
 
@@ -21,6 +22,8 @@ public static class UserModuleBootstrapper
         services.AddMediatR(ctf=>ctf.RegisterServicesFromAssembly(typeof(UserModuleBootstrapper).Assembly));
         services.AddScoped<IUserFacade, UserFacade>();
         services.AddScoped<INotificationFacade, NotificationFacade>();
+
+        services.AddHostedService<NotificationEventHandler>();
 
         return services;
     }
