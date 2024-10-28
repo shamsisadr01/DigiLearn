@@ -24,9 +24,11 @@ class GetCoursesByFilterQueryHandler : IQueryHandler<GetCoursesByFilterQuery, Co
     public async Task<CourseFilterResult> Handle(GetCoursesByFilterQuery request, CancellationToken cancellationToken)
     {
         var result = _context.Courses
+            .Include(c => c.Teacher.User)
+            .Include(c => c.Category)
+            .Include(c => c.SubCategory)
             .Include(c => c.Sections)
             .ThenInclude(c => c.Episodes)
-            .OrderByDescending(d => d.LastUpdate)
             .AsQueryable();
 
         if (request.FilterParams.TeacherId != null)
@@ -67,7 +69,30 @@ class GetCoursesByFilterQueryHandler : IQueryHandler<GetCoursesByFilterQuery, Co
                     Title = s.Title,
                     Slug = s.Slug,
                     Price = s.Price,
-                    CourseStatus = s.Status
+                    CourseStatus = s.Status,
+                    Teacher = $"{s.Teacher.User.Name} {s.Teacher.User.Family}",
+                    Sections = s.Sections.Select(r => new CourseSectionDto
+                    {
+                        Id = r.Id,
+                        CreationDate = r.CreationDate,
+                        CourseId = r.CourseId,
+                        Title = r.Title,
+                        DisplayOrder = r.DisplayOrder,
+                        Episodes = r.Episodes.Select(e => new EpisodeDto
+                        {
+                            Id = e.Id,
+                            CreationDate = e.CreationDate,
+                            SectionId = e.SectionId,
+                            Title = e.Title,
+                            EnglishTitle = e.EnglishTitle,
+                            Token = e.Token,
+                            TimeSpan = e.TimeSpan,
+                            VideoName = e.VideoName,
+                            AttachmentName = e.AttachmentName,
+                            IsActive = e.IsActive,
+                            IsFree = e.IsFree
+                        }).ToList()
+                    }).ToList()
                 }).ToList()
         };
 

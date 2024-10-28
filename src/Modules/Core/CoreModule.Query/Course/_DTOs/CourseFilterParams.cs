@@ -38,6 +38,35 @@ public class CourseFilterData : BaseDto
     public int EpisodeCount => Sections.Sum(s => s.Episodes.Count);
     public string Teacher { get; set; }
     public List<CourseSectionDto> Sections { get; set; }
+
+
+    public string GetDuration()
+    {
+        int totalSeconds = 0;
+        int totalMinutes = 0;
+        int totalHours = 0;
+        foreach (var section in Sections)
+        {
+            foreach (var item in section.Episodes)
+            {
+                totalSeconds += item.TimeSpan.Seconds;
+                totalMinutes += item.TimeSpan.Minutes;
+                totalHours += item.TimeSpan.Hours;
+            }
+
+            while (totalSeconds > 60)
+            {
+                totalMinutes += 1;
+                totalSeconds -= 60;
+            }
+            while (totalMinutes >= 60)
+            {
+                totalHours += 1;
+                totalMinutes -= 60;
+            }
+        }
+        return $"{totalHours:00} : {totalMinutes:00} : {totalSeconds:00}";
+    }
 }
 
 

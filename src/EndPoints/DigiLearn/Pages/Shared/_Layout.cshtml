@@ -1,4 +1,6 @@
-﻿
+﻿@using CoreModule.Facade.Category
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+
 <html lang="fa">
 
 <head>
@@ -14,13 +16,16 @@
     <link rel="stylesheet" href="/css/custom.css">
     @await RenderSectionAsync("meta",false)
 </head>
-
+@inject ICourseCategoryFacade _CategoryFacade
+@{
+    var categories = await _CategoryFacade.GetMainCategories();
+}
 <body>
     <partial name="Header/_MobileMenu" />
     <header>
         <partial name="Header/_TopNav"/>
         @await RenderSectionAsync("middel_header",false)
-       <partial name="Header/_MainMenu"/>
+       <partial name="Header/_MainMenu" model="categories"/>
     </header>
      @RenderBody()
      <partial name="_Footer"/>
