@@ -21,6 +21,7 @@
 	</ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Common.EventBus\Common.EventBus.csproj" />
     <ProjectReference Include="..\..\..\Common\Common.L3.Infrastructure\Common.L3.Infrastructure.csproj" />
     <ProjectReference Include="..\..\..\Common\Common.L4.Query\Common.L4.Query.csproj" />
     <ProjectReference Include="..\UserModule.Data\UserModule.Data.csproj" />

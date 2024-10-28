@@ -19,7 +19,6 @@ public static class UserModuleBootstrapper
         services.AddAutoMapper(typeof(UserModuleBootstrapper).Assembly);
         services.AddValidatorsFromAssembly(typeof(UserModuleBootstrapper).Assembly);
         services.AddMediatR(ctf=>ctf.RegisterServicesFromAssembly(typeof(UserModuleBootstrapper).Assembly));
-
         services.AddScoped<IUserFacade, UserFacade>();
         services.AddScoped<INotificationFacade, NotificationFacade>();
 
