@@ -15,10 +15,10 @@ builder.Services.AddScoped<IFileService, LocalFileService>();
 builder.Services.AddScoped<IFtpFileService, FtpFileService>();
 builder.Services.AddTransient<TeacherActionFilter>();
 
-builder.Services.
-    InitUserModule(builder.Configuration)
+builder.Services.InitUserModule(builder.Configuration)
     .InitTicketModule(builder.Configuration)
-    .InitCoreModule(builder.Configuration);
+    .InitCoreModule(builder.Configuration)
+    .RegisterDependency();
 
 builder.Services.AddJwtAuthentication(builder.Configuration);
 

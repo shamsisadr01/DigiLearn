@@ -1,17 +1,20 @@
 ﻿
+using Common.EventBus.Abstractions;
+using Common.EventBus.RabbitMQ;
 using DigiLearn.Infrastructure.RazorUtils;
 
 namespace DigiLearn.Infrastructure;
 
-public static class RegisterServices
+public static class RegisterAppDependency
 {
-	public static void RegisterApiServices(this IServiceCollection services)
+	public static void RegisterDependency(this IServiceCollection services)
 	{
 		var baseAddress = "https://localhost:5001/api/";
 
         services.AddHttpContextAccessor();
-        services.AddScoped<HttpClientAuthorizationDelegatingHandler>();
         services.AddTransient<IRenderViewToString,RenderViewToString>();
+
+        services.AddSingleton<IEventBus, EventBusRabbitMQ>();
 
     }
 }
