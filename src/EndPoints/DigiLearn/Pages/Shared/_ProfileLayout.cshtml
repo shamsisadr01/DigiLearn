@@ -19,14 +19,14 @@
 </head>
 @inject ICourseCategoryFacade _CategoryFacade
 @{
-    //var categories = await _CategoryFacade.GetMainCategories();
+    var categories = await _CategoryFacade.GetMainCategories();
 }
 <body>
     <div class="overlay"></div>
     <partial name="Header/_MobileMenu" />
     <header>
         <partial name="Header/_TopNav" />
-        <partial name="Header/_MainMenu"  />
+        <partial name="Header/_MainMenu" model="categories"  />
     </header>
     <main class="mb-4">
         <div class="container-fluid">

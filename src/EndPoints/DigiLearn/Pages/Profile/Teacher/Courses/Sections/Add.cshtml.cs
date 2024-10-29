@@ -28,7 +28,6 @@ namespace DigiLearn.Pages.Profile.Teacher.Courses.Sections
         public int DisplayOrder { get; set; }
 
 
-
         public void OnGet()
         {
         }

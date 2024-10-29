@@ -1,14 +1,14 @@
 ﻿@page "{courseId}/{sectionId}"
 @model DigiLearn.Pages.Profile.Teacher.Courses.Sections.Episodes.AddModel
 @{
-    ViewData["title"] = "افرودن قسمت  جدید";
+    ViewData["Title"] = "افرودن قسمت  جدید";
     Layout = "Shared/_ProfileLayout";
 }
 <div class="row ">
     <div class="col-12 info shadow pl-0 pr-0">
         <p class="title">
             <i class="fa fa-address-card-o"></i>
-            @ViewData["title"]
+            @ViewData["Title"]
         </p>
         <div class="info-body p-2">
             <form method="post" class="row" enctype="multipart/form-data">
