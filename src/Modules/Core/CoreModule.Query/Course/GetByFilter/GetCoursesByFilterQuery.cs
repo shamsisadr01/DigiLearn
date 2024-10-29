@@ -31,14 +31,6 @@ class GetCoursesByFilterQueryHandler : IQueryHandler<GetCoursesByFilterQuery, Co
             .ThenInclude(c => c.Episodes)
             .AsQueryable();
 
-        if (request.FilterParams.TeacherId != null)
-            result = result.Where(r => r.TeacherId == request.FilterParams.TeacherId);
-
-        if (request.FilterParams.ActionStatus != null)
-        {
-            result = result.Where(r => r.Status == request.FilterParams.ActionStatus);
-        }
-
         switch (request.FilterParams.FilterSort)
         {
             case CourseFilterSort.Latest:
@@ -52,6 +44,46 @@ class GetCoursesByFilterQueryHandler : IQueryHandler<GetCoursesByFilterQuery, Co
                 break;
         }
 
+        switch (request.FilterParams.SearchByPrice)
+        {
+            case SearchByPrice.Free:
+                result = result.Where(r => r.Price == 0);
+                break;
+            case SearchByPrice.NotFree:
+                result = result.Where(r => r.Price > 0);
+                break;
+        }
+
+        if (request.FilterParams.CourseStatus != null)
+        {
+            result = result.Where(r => r.CourseStatus == request.FilterParams.CourseStatus);
+
+        }
+        if (request.FilterParams.CourseLevel != null)
+        {
+            result = result.Where(r => r.CourseLevel == request.FilterParams.CourseLevel);
+
+        }
+        if (string.IsNullOrWhiteSpace(request.FilterParams.CategorySlug) == false)
+        {
+            result = result.Where(r => r.Category.Slug == request.FilterParams.CategorySlug ||
+                                       r.SubCategory.Slug == request.FilterParams.CategorySlug);
+
+        }
+
+        if (string.IsNullOrWhiteSpace(request.FilterParams.Search) == false)
+        {
+            result = result.Where(r => r.Slug.Contains(request.FilterParams.Search) ||
+                                       r.Title.Contains(request.FilterParams.Search));
+        }
+
+        if (request.FilterParams.TeacherId != null)
+            result = result.Where(r => r.TeacherId == request.FilterParams.TeacherId);
+
+        if (request.FilterParams.ActionStatus != null)
+        {
+            result = result.Where(r => r.Status == request.FilterParams.ActionStatus);
+        }
 
         var skip = (request.FilterParams.PageId - 1) * request.FilterParams.Take;
 
