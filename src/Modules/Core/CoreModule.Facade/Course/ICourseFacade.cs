@@ -23,6 +23,6 @@ public interface ICourseFacade
 
     Task<CourseFilterResult> GetCourseFilter(CourseFilterParams param);
     Task<CourseDto?> GetCourseById(Guid id);
-   // Task<CourseDto?> GetCourseBySlug(string slug);
+    Task<CourseDto?> GetCourseBySlug(string slug);
     Task<EpisodeDto?> GetEpisodeById(Guid id);
 }

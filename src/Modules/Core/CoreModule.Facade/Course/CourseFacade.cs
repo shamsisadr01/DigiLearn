@@ -10,6 +10,7 @@ using CoreModule.Query.Course._DTOs;
 using CoreModule.Query.Course.Episodes;
 using CoreModule.Query.Course.GetByFilter;
 using CoreModule.Query.Course.GetById;
+using CoreModule.Query.Course.GetBySlug;
 using MediatR;
 
 namespace CoreModule.Facade.Course;
@@ -70,11 +71,11 @@ class CourseFacade : ICourseFacade
 
     }
 
-  /*  public async Task<CourseDto?> GetCourseBySlug(string slug)
+    public async Task<CourseDto?> GetCourseBySlug(string slug)
     {
         return await _mediator.Send(new GetCourseBySlugQuery(slug));
 
-    }*/
+    }
 
     public async Task<EpisodeDto?> GetEpisodeById(Guid id)
     {
