@@ -5,7 +5,7 @@ namespace BlogModule.Context;
 
 public class BlogContext : DbContext
 {
-    public BlogContext(DbContextOptions<BlogContext> options)
+    public BlogContext(DbContextOptions<BlogContext> options) : base(options)
     {
         
     }

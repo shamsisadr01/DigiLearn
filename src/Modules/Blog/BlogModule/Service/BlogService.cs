@@ -48,7 +48,7 @@ public class BlogService : IBlogService
 
         if (category.Slug != command.Slug)
         {
-            if (await _categoryRepository.ExistsAsync(c => c.Slug == category.Slug))
+            if (await _categoryRepository.ExistsAsync(c => c.Slug == command.Slug))
                 return OperationResult.Error("اسلاگ تکراری است.");
         }
 
