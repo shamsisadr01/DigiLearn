@@ -21,4 +21,7 @@ public class Post : BaseEntity
     public string ImageName { get; set; }
     public Guid UserId { get; set; }
     public Guid CategoryId { get; set; }
+
+    [ForeignKey("CategoryId")]
+    public Category Category { get; set; }
 }

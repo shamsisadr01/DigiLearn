@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BlogModule.Context;
 using BlogModule.Domain;
 using BlogModule.Repositories.Categories;
 using BlogModule.Repositories.Posts;
@@ -8,6 +9,7 @@ using BlogModule.Utils;
 using Common.L2.Application;
 using Common.L2.Application.FileUtil.Interfaces;
 using Common.L2.Application.SecurityUtil;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogModule.Service;
 
@@ -17,13 +19,15 @@ public class BlogService : IBlogService
     private readonly IPostRepository _postRepository;
     private readonly IMapper _mapper;
     private readonly IFileService _fileService;
+    private readonly BlogContext _context;
 
-    public BlogService(ICategoryRepository categoryRepository, IMapper mapper, IPostRepository postRepository, IFileService fileService)
+    public BlogService(ICategoryRepository categoryRepository, IMapper mapper, IPostRepository postRepository, IFileService fileService, BlogContext context)
     {
         _categoryRepository = categoryRepository;
         _mapper = mapper;
         _postRepository = postRepository;
         _fileService = fileService;
+        _context = context;
     }
 
 
@@ -160,5 +164,48 @@ public class BlogService : IBlogService
             return null;
 
         return _mapper.Map<BlogPostDto>(post);
+    }
+
+    public async Task<BlogPostFilterResult> GetPostsByFilter(BlogPostFilterParams filterParams)
+    {
+        var result = _context.Posts.OrderByDescending(d => d.CreationDate)
+            .Include(c => c.Category).AsQueryable();
+
+
+        if (string.IsNullOrWhiteSpace(filterParams.Search) == false)
+            result = result.Where(r =>
+                r.Title.Contains(filterParams.Search) || r.Description.Contains(filterParams.Search));
+
+
+        if (string.IsNullOrWhiteSpace(filterParams.CategorySlug) == false)
+            result = result.Where(r => r.Category.Slug == filterParams.CategorySlug);
+
+
+        var skip = (filterParams.PageId - 1) * filterParams.Take;
+        var model = new BlogPostFilterResult()
+        {
+            Data = await result.Skip(skip).Take(filterParams.Take).Select(s => new BlogPostFilterItemDto
+            {
+                CreationDate = s.CreationDate,
+                Id = s.Id,
+                UserId = s.UserId,
+                Title = s.Title,
+                Author = s.Author,
+                Description = s.Description,
+                Slug = s.Slug,
+                Visit = s.Visit,
+                ImageName = s.ImageName,
+                Category = new BlogCategoryDto()
+                {
+                    Title = s.Category.Title,
+                    Id = s.CategoryId,
+                    Slug = s.Category.Slug
+                }
+            }).ToListAsync()
+        };
+
+        model.GeneratePaging(result, filterParams.Take, filterParams.PageId);
+        return model;
+
     }
 }

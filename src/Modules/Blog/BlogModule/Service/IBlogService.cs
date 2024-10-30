@@ -17,4 +17,6 @@ public interface IBlogService
     Task<OperationResult> EditPost(EditPostCommand command);
     Task<OperationResult> DeletePost(Guid postId);
     Task<BlogPostDto?> GetPostById(Guid postId);
+
+    Task<BlogPostFilterResult> GetPostsByFilter(BlogPostFilterParams filterParams);
 }

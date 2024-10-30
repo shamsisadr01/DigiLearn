@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ViewModels\Admin\" />
     <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\lfs\objects\logs\" />
     <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\lfs\tmp\objects\" />
     <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\objects\info\" />

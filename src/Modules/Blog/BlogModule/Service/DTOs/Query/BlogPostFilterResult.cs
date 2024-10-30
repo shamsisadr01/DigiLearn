@@ -1,6 +1,9 @@
-﻿namespace BlogModule.Service.DTOs.Query;
-/*
-public class BlogPostFilterResult : BaseFilter<BlogPostFilterItemDto>
+﻿using Common.L4.Query;
+using Common.L4.Query.Filter;
+
+namespace BlogModule.Service.DTOs.Query;
+
+public class BlogPostFilterResult : BaseFilter<BlogPostFilterItemDto, BlogPostFilterParams>
 {
 
 }
@@ -21,4 +24,4 @@ public class BlogPostFilterItemDto : BaseDto
     public long Visit { get; set; }
     public string ImageName { get; set; }
     public BlogCategoryDto Category { get; set; }
-}*/
+}
