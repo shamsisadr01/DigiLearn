@@ -1,9 +1,11 @@
-﻿namespace DigiLearn.ViewModels;
+﻿using BlogModule.Service.DTOs.Query;
+
+namespace DigiLearn.ViewModels;
 
 public class HomePageViewModel
 {
     public List<CourseCardViewModel> LatestCourses { get; set; }
-    //public List<BlogPostFilterItemDto> LatestArticles { get; set; }
+    public List<BlogPostFilterItemDto> LatestArticles { get; set; }
 }
 
 public class CourseCardViewModel

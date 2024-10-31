@@ -52,7 +52,7 @@ namespace Common.L1.Domain.Utilities
 			return value.Any(c => c > 255);
 		}
 
-		public static string Subscribe(this string text, int length)
+		public static string SubStringCustom(this string text, int length)
 		{
 			if (text.Length > length)
 			{

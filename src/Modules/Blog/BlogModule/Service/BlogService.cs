@@ -30,6 +30,17 @@ public class BlogService : IBlogService
         _context = context;
     }
 
+    public async Task AddPostVisit(Guid id)
+    {
+        var post = await _postRepository.GetAsync(id);
+        if (post != null)
+        {
+            post.Visit += 1;
+            _postRepository.Update(post);
+            await _context.SaveChangesAsync();
+        }
+
+    }
 
     public async Task<OperationResult> CreateCategory(CreateBlogCategoryCommand command)
     {
@@ -141,7 +152,6 @@ public class BlogService : IBlogService
         post.CategoryId = command.CategoryId;
         post.Slug = command.Slug;
 
-        _postRepository.Add(post);
         await _postRepository.Save();
         return OperationResult.Success();
     }
@@ -207,5 +217,31 @@ public class BlogService : IBlogService
         model.GeneratePaging(result, filterParams.Take, filterParams.PageId);
         return model;
 
+    }
+
+    public async Task<BlogPostFilterItemDto?> GetPostBySlug(string slug)
+    {
+        var post = await _context.Posts.Include(c => c.Category).FirstOrDefaultAsync(f => f.Slug == slug);
+        if (post == null)
+            return null;
+
+        return new BlogPostFilterItemDto
+        {
+            CreationDate = post.CreationDate,
+            Id = post.Id,
+            UserId = post.UserId,
+            Title = post.Title,
+            Author = post.Author,
+            Description = post.Description,
+            Slug = post.Slug,
+            Visit = post.Visit,
+            ImageName = post.ImageName,
+            Category = new BlogCategoryDto()
+            {
+                Title = post.Category.Title,
+                Id = post.CategoryId,
+                Slug = post.Category.Slug
+            }
+        };
     }
 }

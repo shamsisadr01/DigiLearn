@@ -11,7 +11,6 @@
     <Folder Include="Commands\Roles\" />
     <Folder Include="EventHandlers\" />
     <Folder Include="Queries\Roles\" />
-    <Folder Include="Queries\Users\GetById\" />
     <Folder Include="Queries\Users\GetByPhoneNumber\" />
     <Folder Include="Queries\_DTOs\" />
   </ItemGroup>

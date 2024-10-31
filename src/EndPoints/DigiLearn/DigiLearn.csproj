@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages\NewFolder\**" />
-    <Content Remove="Pages\NewFolder\**" />
-    <EmbeddedResource Remove="Pages\NewFolder\**" />
-    <None Remove="Pages\NewFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="ViewModels\Admin\" />
     <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\lfs\objects\logs\" />
     <Folder Include="wwwroot\admin\ckeditor\plugins\inserthtmlfile\.git\lfs\tmp\objects\" />

@@ -4,6 +4,7 @@ using UserModule.Core.Commands.Users.ChangePassword;
 using UserModule.Core.Commands.Users.Edit;
 using UserModule.Core.Commands.Users.Register;
 using UserModule.Core.Queries._DTOs;
+using UserModule.Core.Queries.Users.GetById;
 using UserModule.Core.Queries.Users.GetByPhoneNumber;
 
 namespace UserModule.Core.Services;
@@ -50,7 +51,6 @@ public class UserFacade : IUserFacade
 
     public async Task<UserDto?> GetById(Guid id)
     {
-        throw new Exception();
-        // return await _mediator.Send(new GetUserByIdQuery(id));
+         return await _mediator.Send(new GetUserByIdQuery(id));
     }
 }
