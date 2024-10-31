@@ -21,27 +21,32 @@
     var categories = await _CategoryFacade.GetMainCategories();
 }
 <body>
-    <partial name="Header/_MobileMenu" />
-    <header>
-        <partial name="Header/_TopNav"/>
-        @await RenderSectionAsync("middel_header",false)
-       <partial name="Header/_MainMenu" model="categories"/>
-    </header>
-     @RenderBody()
-     <partial name="_Footer"/>
-     
-     <div id="token-value">
-         @Html.AntiForgeryToken()
-     </div>
-     <script src="/js/jquery.3.2.1.min.js"></script>
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/Bootstrap/bootstrap.min.js"></script>
-    <script src="/js/Bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="/js/main.js"></script>
-     <script src="/js/particles.js"></script>
-     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-     <script src="/global/global.js"></script>
-    @await RenderSectionAsync("Scripts",false);
+    <div class="overlay"></div>
+    <div class="loading">
+        <img src="/global/loading.svg" alt="loading...">
+    </div>
+<partial name="Header/_MobileMenu"/>
+<header>
+    <partial name="Header/_TopNav"/>
+    @await RenderSectionAsync("middel_header", false)
+    <partial name="Header/_MainMenu" model="categories"/>
+</header>
+@RenderBody()
+<partial name="_Footer"/>
+
+<div id="token-value">
+    @Html.AntiForgeryToken()
+</div>
+<script src="/js/jquery.3.2.1.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/Bootstrap/bootstrap.min.js"></script>
+<script src="/js/Bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/particles.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/global/global.js"></script>
+<script src="/js/custom.js"></script>
+@await RenderSectionAsync("Scripts", false);
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 ﻿@page "/blog/{slug}"
 @using BlogModule.Utils
+@using CommentModule.Domain
 @using DigiLearn.Infrastructure
 @using DigiLearn.Infrastructure.Utils
 @using Microsoft.AspNetCore.Mvc.TagHelpers
@@ -136,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                @*     <div class="Comments p-2 card custom-shadow mb-5">
+                    <div class="Comments p-2 card custom-shadow mb-5">
                         <div class="comment-title">
                             <i class="zmdi zmdi-comments text-info">
                             </i>
@@ -166,7 +167,7 @@
                         <div id="comment_list">
                             <partial name="Shared/Comments/_Comments" model="Model.CommentFilterResult" />
                         </div>
-                    </div> *@
+                    </div>
                 </div>
             </div>
         </div>

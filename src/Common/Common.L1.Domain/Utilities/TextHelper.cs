@@ -15,11 +15,16 @@ namespace Common.L1.Domain.Utilities
 			return !isNumber;
 		}
 
-		public static string SetUnReadableEmail(this string email)
+		public static string SetUnReadableEmail(this string? email)
 		{
-			email = email.Split('@')[0];
+            if (email == null)
+            {
+                return "";
+            }
+
+            email = email.Split('@')[0];
 			var emailLenght = email.Length;
-			email = "..." + email.Substring(0, emailLenght - 1);
+			email = "..." + email.Substring(0, emailLenght - 2);
 
 			return email;
 		}

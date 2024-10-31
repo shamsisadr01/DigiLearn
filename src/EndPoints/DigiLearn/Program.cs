@@ -1,4 +1,5 @@
 using BlogModule;
+using CommentModule;
 using Common.L2.Application.FileUtil.Interfaces;
 using Common.L2.Application.FileUtil.Services;
 using CoreModule.Config;
@@ -20,6 +21,7 @@ builder.Services.InitUserModule(builder.Configuration)
     .InitTicketModule(builder.Configuration)
     .InitCoreModule(builder.Configuration)
     .InitBlogModule(builder.Configuration)
+    .InitCommentModule(builder.Configuration)
     .RegisterDependency();
 
 builder.Services.AddJwtAuthentication(builder.Configuration);
