@@ -19,9 +19,9 @@ public class CoreModuleInfrastructureBootstrapper
         services.AddScoped<ICourseRepository, CourseRepository>();
         services.AddScoped<ICourseCategoryRepository, CourseCategoryRepository>();
         services.AddScoped<ITeacherRepository, TeacherRepository>();
-        /*services.AddScoped<IOrderRepository, OrderRepository>();
+        //services.AddScoped<IOrderRepository, OrderRepository>();
 
-        services.AddHostedService<UserChangeAvatarEventHandler>();*/
+        services.AddHostedService<UserChangeAvatarEventHandler>();
 
         services.AddHostedService<UserRegisteredEventHandler>();
         services.AddHostedService<UserEditedEventHandler>();
