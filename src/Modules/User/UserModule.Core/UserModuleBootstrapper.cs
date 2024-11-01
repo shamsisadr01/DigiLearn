@@ -21,6 +21,7 @@ public static class UserModuleBootstrapper
         services.AddValidatorsFromAssembly(typeof(UserModuleBootstrapper).Assembly);
         services.AddMediatR(ctf=>ctf.RegisterServicesFromAssembly(typeof(UserModuleBootstrapper).Assembly));
         services.AddScoped<IUserFacade, UserFacade>();
+        services.AddScoped<IRoleFacade, RoleFacade>();
         services.AddScoped<INotificationFacade, NotificationFacade>();
 
         services.AddHostedService<NotificationEventHandler>();

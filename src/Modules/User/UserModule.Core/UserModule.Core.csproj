@@ -8,9 +8,10 @@
 
   <ItemGroup>
     <Folder Include="Commands\Notifications\Create\" />
-    <Folder Include="Commands\Roles\" />
+    <Folder Include="Commands\Roles\Delete\" />
     <Folder Include="EventHandlers\" />
-    <Folder Include="Queries\Roles\" />
+    <Folder Include="Queries\Roles\GetById\" />
+    <Folder Include="Queries\Roles\GetAll\" />
     <Folder Include="Queries\Users\GetByPhoneNumber\" />
     <Folder Include="Queries\_DTOs\" />
   </ItemGroup>
