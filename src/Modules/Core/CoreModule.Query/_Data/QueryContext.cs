@@ -16,8 +16,8 @@ class QueryContext : DbContext
     public DbSet<CategoryQueryModel> CourseCategories { get; set; }
     public DbSet<EpisodeQueryModel> Episodes { get; set; }
     public DbSet<SectionQueryModel> Sections { get; set; }
-    // public DbSet<OrderQueryModel> Orders { get; set; }
-    //public DbSet<OrderItemQueryModel> OrderItems { get; set; }
+    public DbSet<OrderQueryModel> Orders { get; set; }
+    public DbSet<OrderItemQueryModel> OrderItems { get; set; }
 
 
     [Obsolete("This context is read-only", true)]

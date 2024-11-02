@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Persistent\Category\" />
     <Folder Include="Persistent\Course\" />
+    <Folder Include="Persistent\Order\" />
     <Folder Include="Persistent\Teacher\" />
     <Folder Include="Persistent\Users\" />
   </ItemGroup>

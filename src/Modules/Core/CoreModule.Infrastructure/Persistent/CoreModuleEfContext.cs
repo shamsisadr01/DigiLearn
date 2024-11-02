@@ -1,5 +1,6 @@
 ﻿using Common.L3.Infrastructure;
 using CoreModule.Domain.Category.Models;
+using CoreModule.Domain.Order.Models;
 using CoreModule.Infrastructure.Persistent.Course;
 using CoreModule.Infrastructure.Persistent.Users;
 using MediatR;
@@ -16,6 +17,7 @@ public class CoreModuleEfContext : BaseEfContext<CoreModuleEfContext>
     public DbSet<Domain.Course.Models.Course> Courses { get; set; }
     public DbSet<Domain.Teacher.Models.Teacher> Teachers { get; set; }
     public DbSet<CourseCategory> Categories { get; set; }
+    public DbSet<Order> Orders { get; set; }
 
     public DbSet<User> Users { get; set; }
 
