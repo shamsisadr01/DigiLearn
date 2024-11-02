@@ -59,11 +59,11 @@ class QueryContext : DbContext
 
         });
 
-       /* modelBuilder.Entity<OrderItemQueryModel>(builder =>
+        modelBuilder.Entity<OrderItemQueryModel>(builder =>
         {
             builder.ToTable("OrderItems");
 
-        });*/
+        });
        /* modelBuilder.Entity<CourseQueryModel>(builder =>
         {
 

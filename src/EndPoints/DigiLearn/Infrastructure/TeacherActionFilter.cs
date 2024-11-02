@@ -14,7 +14,7 @@ public class TeacherActionFilter : ActionFilterAttribute
         _teacherFacade = teacherFacade;
     }
 
-    public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+    public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {
         if (context.HttpContext.User.Identity.IsAuthenticated == false)
             context.Result = new RedirectResult("/");
@@ -23,4 +23,5 @@ public class TeacherActionFilter : ActionFilterAttribute
             context.Result = new RedirectResult("/Profile");
         await next();
     }
+
 }
